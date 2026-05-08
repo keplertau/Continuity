@@ -142,13 +142,14 @@ First public-facing draft created 2026-05-08:
 - `SPEC.md` - provider-neutral register model and implementation rules
 - `templates/lite/CONTINUITY.md` - one-file starter
 - `templates/standard/` - current context, preferences, decisions, open threads, evidence, session log
+- `LICENSE`, `CITATION.cff`, and `NOTICE` - permissive use with preserved attribution
 
 Next work:
 
 1. Decide whether "Continuity" remains the final public name or only the working title.
 2. Add project-mode templates without making the default setup too heavy.
 3. Add examples for personal use, project use, Obsidian/wiki use, and managed-agent memory stores.
-4. Decide whether the first GitHub repo should include a license, contribution note, and minimal release marker before publication.
+4. Decide whether the first GitHub repo should include a minimal release marker before publication.
 5. Test the setup prompt by giving the repository to a fresh AI assistant and seeing whether it can scaffold a useful Continuity layer without extra explanation.
 
 ## Current Positioning

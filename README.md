@@ -113,3 +113,13 @@ Later versions may add integrations, scripts, managed-agent examples, or local t
 ## License
 
 MIT. Use it, adapt it, and make it useful in your own context.
+
+The MIT license requires preserving the copyright and license notice in copies
+or substantial portions of the project. When practical, cite the project as:
+
+```text
+Carsten Geiser, Continuity, https://github.com/keplertau/Continuity
+```
+
+This repository also includes `CITATION.cff` for GitHub's citation interface and
+`NOTICE` for human-readable attribution.

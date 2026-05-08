@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use Continuity, please cite it as below."
+title: "Continuity"
+abstract: "An open-source context system for keeping human-AI work coherent across chats, projects, tools, and time."
+authors:
+  - family-names: "Geiser"
+    given-names: "Carsten"
+license: "MIT"
+date-released: 2026-05-08
+url: "https://github.com/keplertau/Continuity"
+repository-code: "https://github.com/keplertau/Continuity"
+
