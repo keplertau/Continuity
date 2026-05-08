@@ -51,6 +51,10 @@ Continuity is not a specific app, database, or platform. It is a pattern you can
 
 If you are not technical, start here:
 
+<p align="center">
+  <img src="assets/section-quick-start.png" alt="A person connecting a repository, an AI assistant, and a new continuity file through a shared thread">
+</p>
+
 1. Open this GitHub project.
 2. Give the link to your AI assistant.
 3. Tell it: "Read `AI-SETUP-PROMPT.md` and help me set up Continuity."
@@ -74,6 +78,10 @@ Continuity can be as small or as structured as you need.
 
 You can start Lite and grow later.
 
+<p align="center">
+  <img src="assets/section-setup-levels.png" alt="Three continuity setup levels growing from one file to a folder to a structured project board">
+</p>
+
 **Lite** uses one file, usually called `CONTINUITY.md`. This is best for personal use, early experiments, or anyone who just wants the benefit without extra structure.
 
 **Standard** uses a small folder with a few files: current context, preferences, decisions, open threads, evidence, and session notes. This is best for ongoing projects or serious personal use.
@@ -91,6 +99,10 @@ Continuity works because the human and AI can tell those differences apart.
 ## Status Markers
 
 Use compact markers when a memory item could shape future AI behavior:
+
+<p align="center">
+  <img src="assets/section-status-markers.png" alt="Memory cards being sorted into distinct status trays instead of one mixed pile">
+</p>
 
 ```text
 [CONFIRMED 2026-05-08]
@@ -155,6 +167,10 @@ It demonstrates the basic rhythm: current context stays short, preferences stay 
 ## For AI Assistants
 
 If you are an AI assistant reading this repository because a human asked you to set up Continuity, begin with `AI-SETUP-PROMPT.md`.
+
+<p align="center">
+  <img src="assets/section-ai-contract.png" alt="A human and AI assistant using a shared continuity board to read context, flag stale items, and update only what changed">
+</p>
 
 Your job is not to build the most complete system. Your job is to give the human a continuity layer they will actually use.
 

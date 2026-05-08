@@ -7,6 +7,10 @@ This folder contains the first visual assets for the Continuity GitHub repositor
 - `continuity-mark.png` - square logo mark, 512 x 512
 - `continuity-hero.png` - README hero visual, 1280 x 720
 - `social-preview.png` - GitHub repository social preview crop, 1280 x 640
+- `section-quick-start.png` - Quick Start section visual, 960 x 540
+- `section-setup-levels.png` - Setup Levels section visual, 960 x 540
+- `section-status-markers.png` - Status Markers section visual, 960 x 540
+- `section-ai-contract.png` - For AI Assistants section visual, 960 x 540
 
 ## Visual Direction
 
