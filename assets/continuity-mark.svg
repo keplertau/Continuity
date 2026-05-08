@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Continuity mark</title>
+  <desc id="desc">An abstract continuous loop with structured register lines, using the Continuity teal, coral, cream, and navy palette.</desc>
+  <defs>
+    <linearGradient id="loopA" x1="120" y1="92" x2="408" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#42c7bb"/>
+      <stop offset="0.58" stop-color="#0f8f91"/>
+      <stop offset="1" stop-color="#0b5367"/>
+    </linearGradient>
+    <linearGradient id="loopB" x1="392" y1="116" x2="112" y2="404" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff7a55"/>
+      <stop offset="0.62" stop-color="#ff5d43"/>
+      <stop offset="1" stop-color="#f2a15c"/>
+    </linearGradient>
+    <linearGradient id="bars" x1="160" y1="207" x2="352" y2="305" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b3148"/>
+      <stop offset="0.52" stop-color="#0f8f91"/>
+      <stop offset="1" stop-color="#ff6b4a"/>
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M362 126C311 88 238 78 176 106C104 139 63 215 78 292C87 342 117 386 159 412"
+    fill="none"
+    stroke="url(#loopA)"
+    stroke-width="38"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+  <path
+    d="M151 386C202 424 276 434 337 406C410 373 451 297 434 219C425 169 395 125 353 100"
+    fill="none"
+    stroke="url(#loopB)"
+    stroke-width="38"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <path
+    d="M154 331C186 374 247 393 302 373C363 351 397 286 380 224"
+    fill="none"
+    stroke="#fff7ec"
+    stroke-width="16"
+    stroke-linecap="round"
+    opacity="0.94"/>
+  <path
+    d="M359 180C326 137 265 119 210 139C150 161 115 226 132 288"
+    fill="none"
+    stroke="#fff7ec"
+    stroke-width="16"
+    stroke-linecap="round"
+    opacity="0.94"/>
+
+  <g transform="rotate(-8 256 256)">
+    <rect x="168" y="210" width="176" height="20" rx="10" fill="#0b3148"/>
+    <rect x="148" y="248" width="216" height="20" rx="10" fill="url(#bars)"/>
+    <rect x="168" y="286" width="176" height="20" rx="10" fill="#ff6b4a"/>
+  </g>
+</svg>

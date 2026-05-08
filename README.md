@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/continuity-mark.png" alt="Continuity logo mark" width="128">
+  <img src="assets/continuity-mark.svg" alt="Continuity logo mark" width="128">
 </p>
 
 <h1 align="center">Continuity</h1>

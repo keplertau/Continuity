@@ -6,7 +6,9 @@ Continuity uses Git tags such as `v0.1.0` for public release points. Template, p
 
 ## [Unreleased]
 
-- No unreleased changes yet.
+### Changed
+
+- Replaced the original illustrative raster logo with a cleaner vector mark and regenerated the 512 x 512 PNG export.
 
 ## [0.1.0] - 2026-05-08
 
