@@ -1,10 +1,29 @@
-# Continuity
+<p align="center">
+  <img src="assets/continuity-mark.png" alt="Continuity logo mark" width="128">
+</p>
 
-**Stop starting over with your AI.**
+<h1 align="center">Continuity</h1>
 
-Continuity is an open-source context system for humans and AI.
+<p align="center">
+  <strong>Stop starting over with your AI.</strong>
+</p>
 
-It helps you keep a coherent working relationship with an AI assistant across chats, projects, tools, and time. It works with whatever memory setup you already use: plain files, GitHub, Obsidian, a wiki, project folders, chat history, Claude Projects, managed agent memory stores, or any other system your AI can read and update.
+<p align="center">
+  An open-source context system for keeping human-AI work coherent across chats, projects, tools, and time.
+</p>
+
+<p align="center">
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="START-HERE.md">Start Here</a> ·
+  <a href="AI-SETUP-PROMPT.md">AI Setup Prompt</a> ·
+  <a href="SPEC.md">Spec</a>
+</p>
+
+<p align="center">
+  <img src="assets/continuity-hero.png" alt="A visual system of organized context cards connected by a flowing continuity thread between human and AI workspaces">
+</p>
+
+Continuity helps you keep a coherent working relationship with an AI assistant across chats, projects, tools, and time. It works with whatever memory setup you already use: plain files, GitHub, Obsidian, a wiki, project folders, chat history, Claude Projects, managed agent memory stores, or any other system your AI can read and update.
 
 The goal is simple: help your AI remember the right things in the right way.
 
@@ -45,13 +64,19 @@ The register model and implementation rules live in `SPEC.md`.
 
 Continuity can be as small or as structured as you need.
 
+| Level | Best For | What It Creates |
+|---|---|---|
+| **Lite** | Personal use, first experiments, simple context | One `CONTINUITY.md` file |
+| **Standard** | Ongoing projects, writing, research, repeated AI work | A small `continuity/` folder with focused files |
+| **Project** | Teams, long-running workspaces, agents, governance | Briefings, decision records, session notes, evidence, and process files |
+
+You can start Lite and grow later.
+
 **Lite** uses one file, usually called `CONTINUITY.md`. This is best for personal use, early experiments, or anyone who just wants the benefit without extra structure.
 
 **Standard** uses a small folder with a few files: current context, preferences, decisions, open threads, evidence, and session notes. This is best for ongoing projects or serious personal use.
 
 **Project** adds a more formal structure for teams, long-running work, research, writing, software projects, or governance. This is where roadmap files, decision records, and evidence archives become useful.
-
-You can start Lite and grow later.
 
 ## The Core Rule
 
@@ -77,6 +102,14 @@ It can support:
 - advanced memory systems that need a governance layer
 
 The system should remain usable by a nontechnical person with a folder, a document editor, and an AI assistant.
+
+## Visual Identity
+
+Continuity's visual language is built around a simple idea: context should flow, but it should not blur together.
+
+The mark uses a continuous loop, two nodes, and layered context cards. The hero visual shows memory as organized registers connected by a shared thread rather than a pile of undifferentiated recall.
+
+Brand assets live in `assets/`.
 
 ## Design Principles
 
