@@ -18,6 +18,7 @@ Hard constraints:
 - Start with the smallest useful setup.
 - Keep this accessible to a nontechnical person.
 - Do not require a database, server, plugin, command-line workflow, or paid platform unless I explicitly ask for that.
+- If you cannot create or edit files, say so clearly and offer a manual fallback.
 - Do not import everything. Place memory carefully.
 - Do not treat your own inference as confirmed fact.
 - Do not turn passing moods, temporary preferences, or old self-descriptions into permanent identity claims.
@@ -29,13 +30,21 @@ Default preferences:
 - Use plain markdown files unless my existing system clearly calls for another format.
 - Work with the tools I already use: folders, GitHub, Obsidian, a wiki, project files, chat history, Claude Projects, managed agent memory stores, or something else.
 - Reuse the templates in this repository when available.
-- Ask only the questions you need beyond the required inspection questions below.
+- Ask only the questions you need beyond the required setup questions below.
 
-First, ask these required inspection questions:
+First, check whether this environment lets you create and edit files.
+
+Then ask only these required setup questions:
 1. Ask me what this continuity layer is for: personal use, a project, a team, research, writing, software, ordinary life, or something else.
-2. Ask where it should live: one file, a folder, a repo, Obsidian, a wiki, an existing project space, or another place.
-3. Ask what future AI sessions should know first.
-4. Ask whether I am willing to maintain the basic distinctions: current context, stable preferences, decisions, open threads, evidence, and session notes.
+2. Ask where you can create or update the Continuity files.
+
+If the answer is obvious from the environment, proceed without asking.
+
+If you do not have file access:
+- Say that automatic setup will not work in this chat.
+- Offer to create the Lite `CONTINUITY.md` content in the chat for me to copy manually.
+- Do not pretend you created files.
+- Do not ask for more setup detail than you need to produce that Lite file.
 
 Then recommend one of these setup levels:
 
@@ -123,25 +132,27 @@ When creating files, include simple headings and short instructions inside each 
 
 After setup, give me:
 1. A short explanation of what you created.
-2. The exact start-of-session instruction I should use next time.
-3. The exact end-of-session instruction I should use when I want Continuity updated.
+2. The start command: `Start continuity`.
+3. The end command: `Stop continuity`.
 4. Any open questions that should be resolved later.
 
 Do not overbuild. The first version only needs to make the next conversation better than the last one.
 ```
 
-## Optional Start-Of-Session Instruction
+## Start-Of-Session Command
 
 Use this at the start of a future chat:
 
 ```text
-Before answering, please read my Continuity files and use them as context. Pay special attention to current context, confirmed decisions, open threads, stale markers, conflicts, and evidence pointers. Briefly tell me which continuity records you used when the task depends on stored context. If something is uncertain, inferred, stale, or contradictory, say so before relying on it.
+Start continuity
 ```
 
-## Optional End-Of-Session Instruction
+## End-Of-Session Command
 
 Use this after a meaningful chat:
 
 ```text
-Please update my Continuity layer. Capture changes to current context, decisions, open threads, preferences, evidence pointers, and session notes. Use the status markers from SPEC.md. Mark anything inferred, provisional, stale, archived, or superseded clearly. Do not overwrite unresolved tensions with false certainty. Keep the session log focused on what changed and what was updated elsewhere.
+Stop continuity
 ```
+
+The detailed command behavior lives in [`COMMANDS.md`](COMMANDS.md).

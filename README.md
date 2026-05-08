@@ -14,8 +14,10 @@
 
 <p align="center">
   <a href="#quick-start">Quick Start</a> ·
+  <a href="#where-it-works">Where It Works</a> ·
   <a href="START-HERE.md">Start Here</a> ·
   <a href="AI-SETUP-PROMPT.md">AI Setup Prompt</a> ·
+  <a href="COMMANDS.md">Commands</a> ·
   <a href="SPEC.md">Spec</a>
 </p>
 
@@ -65,6 +67,33 @@ You do not need to understand Git, install a database, run a server, or choose a
 The starter templates live in `templates/lite/` and `templates/standard/`.
 
 The register model and implementation rules live in `SPEC.md`.
+
+After setup, everyday use should be simple:
+
+```text
+Start continuity
+```
+
+```text
+Stop continuity
+```
+
+The detailed command behavior lives in [`COMMANDS.md`](COMMANDS.md).
+
+## Where It Works
+
+Continuity works best when the AI assistant can read and write files on your computer or inside your project workspace.
+
+The key question is not which AI model you use. The key question is whether that AI can access the place where your Continuity files live.
+
+| Environment | Fit | What To Expect |
+|---|---|---|
+| Mac, Windows, or IDE agents with file access, such as Codex | Best | The AI can create folders, write templates, read context, and update the continuity layer directly. |
+| Desktop or project workspaces with folder access, such as Co-Work-style tools | Best | The AI can maintain Continuity as part of the workspace. |
+| AI tools with uploaded project files but limited file operations | Partial | The AI may help draft or update files, but setup can be clunky if it cannot create folders or save changes. |
+| Browser chat with no local file access | Manual | The AI cannot install Continuity by itself. It can draft a Lite file for you to copy into place. |
+
+If your AI cannot create folders or edit files, that is an environment limitation, not a Continuity failure. Use the Lite template manually, upload the files into a project space, or switch to a tool that has file access.
 
 ## Setup Levels
 

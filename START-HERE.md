@@ -20,6 +20,20 @@ If the AI needs the deeper rules, ask it to read `SPEC.md`.
 
 Continuity works best when you treat it as a shared context discipline, not a memory dump. The AI can help maintain it, but the human owns the distinctions.
 
+## Where It Works
+
+Continuity works best in tools where the AI can read and write files: local coding agents, desktop workspaces, project folders, and similar environments.
+
+A browser chat window usually cannot reach your Desktop or project folders by itself. In that case, Continuity can still help, but setup becomes manual: the AI can draft the file contents, and you copy them into place.
+
+Some desktop or app-based AI tools are also partial if they can read uploaded files but cannot create folders or save changes. That is a tool-access limitation, not a problem with Continuity.
+
+If the AI says it cannot access folders, use Manual Mode:
+
+```text
+Please create a Lite CONTINUITY.md for me in this chat so I can copy it into a file myself.
+```
+
 ## Choose A Setup Level
 
 Choose **Lite** if you want the simplest possible version.
@@ -103,26 +117,31 @@ The AI should not silently resolve contradictions between files. If current cont
 
 ## First Session
 
-In the first session, the AI should help you create the initial continuity layer by asking a few practical questions:
+In the first session, the AI should help you create the initial continuity layer by asking only what it needs:
 
 - What is this continuity layer for?
-- Where should it live?
-- What should future AI sessions know first?
-- What decisions, preferences, or open questions already matter?
-- What existing notes, chats, projects, or documents should be treated as evidence?
+- Where can it create or update the files?
+
+If you already have important decisions, preferences, open questions, notes, chats, or documents, the AI may ask about those too. It should not turn setup into an interview.
 
 The first version can be incomplete. It only needs to be useful enough that the next conversation starts better than the last one.
 
 ## Ongoing Use
 
-At the start of a future chat, ask the AI to read the relevant Continuity files before answering.
-
-At the end of a meaningful chat, ask the AI to update the continuity layer:
+At the start of a future chat, say:
 
 ```text
-Please update Continuity: current context, decisions, open threads, preferences, session notes, and any evidence pointers that changed. Use the status markers from SPEC.md where ambiguity matters. Keep the session log focused on what changed and what was updated elsewhere.
+Start continuity
+```
+
+At the end of a meaningful chat, say:
+
+```text
+Stop continuity
 ```
 
 That is the basic rhythm.
 
-Read, work, update.
+Start, work, stop.
+
+The detailed behavior behind those two commands lives in [`COMMANDS.md`](COMMANDS.md).

@@ -155,13 +155,20 @@ Protocol hardening landed 2026-05-08 after Opus 4.7 review:
 - Session log role narrowed to changes, file updates, evidence pointers, and uncaptured residue rather than a duplicate diary.
 - AI behavioral contract added for start-of-session reading, contradiction handling, and end-of-session updates.
 
+Dogfood testing on 2026-05-08 clarified the adoption surface:
+
+- Cold-start Codex with file access worked well.
+- Chat-only or limited-file environments need a manual fallback because they cannot reliably create folders or update files.
+- User-facing session commands are now `Start continuity` and `Stop continuity`; the detailed behavior lives in the docs and templates rather than in long user prompts.
+- Setup should ask only what is needed to create the first useful layer. Do not ask gating questions about willingness to maintain distinctions.
+
 Next work:
 
 1. Decide whether "Continuity" remains the final public name or only the working title.
 2. Add project-mode templates without making the default setup too heavy.
 3. Add examples for project use, Obsidian/wiki use, and managed-agent memory stores.
 4. Decide whether the first GitHub repo should include a minimal release marker before publication.
-5. Test the setup prompt by giving the repository to a fresh AI assistant and seeing whether it can scaffold a useful Continuity layer without extra explanation.
+5. Continue compatibility testing across file-access agents, project-file assistants, and browser-only chat tools.
 
 ## Current Positioning
 

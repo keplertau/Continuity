@@ -40,6 +40,7 @@ It specifies:
 
 - memory registers
 - authority levels
+- simple start and stop commands
 - update rules
 - retrieval discipline
 - consolidation rules
@@ -405,7 +406,37 @@ Project should not be the default for ordinary users.
 
 **Failure mode:** Briefings drift from the underlying records.
 
-## 8. Status Markup
+## 8. Command Interface
+
+Continuity has two everyday commands.
+
+### 8.1 Start continuity
+
+At the start of a session, the human can say:
+
+```text
+Start continuity
+```
+
+The AI should read the relevant Continuity files, use current context and active decisions, and flag stale, inferred, provisional, contradictory, archived, or superseded items before relying on them.
+
+The AI should keep this light. It does not need to recite every file it read. It should mention records used only when they materially affect the task.
+
+If the AI does not know where the Continuity files live, it should ask for the file or folder location once.
+
+### 8.2 Stop continuity
+
+At the end of a meaningful session, the human can say:
+
+```text
+Stop continuity
+```
+
+The AI should update only the Continuity records that changed. It should keep current context short, preserve decisions and open threads in their proper places, update evidence pointers, and keep the session log focused on what changed.
+
+If the AI cannot access files, it should say so and offer a manual fallback rather than pretending it updated the continuity layer.
+
+## 9. Status Markup
 
 Continuity implementations should use a small shared notation for load-bearing distinctions.
 
@@ -424,7 +455,7 @@ Not every item needs a marker. Items that can affect future behavior should be m
 
 AI assistants should preserve existing markers unless the human changes them or the session clearly updates the item.
 
-## 9. Authority And Conflict Rules
+## 10. Authority And Conflict Rules
 
 Continuity implementations should make authority explicit when it matters.
 
@@ -446,9 +477,9 @@ Example:
 I see a conflict: current.md says X, but decisions.md has an active confirmed decision saying not-X. I will treat decisions.md as authoritative unless you want to revise it.
 ```
 
-## 10. Update Rules
+## 11. Update Rules
 
-### 10.1 Capture
+### 11.1 Capture
 
 At the end of a meaningful session, capture:
 
@@ -461,31 +492,31 @@ At the end of a meaningful session, capture:
 
 Do not capture everything.
 
-### 10.2 Placement
+### 11.2 Placement
 
 Place each item in the register where it belongs.
 
 A decision does not belong in current context only. A temporary worry does not belong in stable preferences. A transcript pointer does not belong only in a summary.
 
-### 10.3 Review
+### 11.3 Review
 
 Review identity-level and preference-level memory with care.
 
 If the AI is not sure whether something is stable, mark it as inferred or provisional.
 
-### 10.4 Supersession
+### 11.4 Supersession
 
 When something changes, do not silently erase the old item if the change matters.
 
 Mark it as superseded, historical, or retired. Note what replaced it.
 
-### 10.5 Deletion
+### 11.5 Deletion
 
 The human may delete any continuity item.
 
 AI assistants should not resist deletion. They may ask whether evidence should be preserved when deletion would remove the only source pointer for a load-bearing claim.
 
-### 10.6 Staleness And Decay
+### 11.6 Staleness And Decay
 
 At session start, the AI should check whether current context appears stale.
 
@@ -499,7 +530,7 @@ During updates, the AI should:
 
 Decay is normal. The goal is not permanent memory. The goal is memory that knows when it should stop steering behavior.
 
-## 11. Retrieval Discipline
+## 12. Retrieval Discipline
 
 At the start of a session, an AI assistant should read the smallest set of Continuity records needed for the task.
 
@@ -519,7 +550,7 @@ If records conflict, use the authority and conflict rules above. Do not invent a
 
 When the task is sensitive, high-impact, or identity-shaping, the AI should briefly tell the human what continuity records it used and flag any stale or conflicting items.
 
-## 12. AI Behavioral Contract
+## 13. AI Behavioral Contract
 
 When an AI assistant uses a Continuity layer, it should follow this contract.
 
@@ -546,7 +577,7 @@ At session end:
 4. Preserve evidence pointers for load-bearing claims.
 5. Propose cleanup when Lite or Standard has outgrown its setup level.
 
-## 13. Consolidation Rules
+## 14. Consolidation Rules
 
 Consolidation may happen manually, at session end, on a schedule, or through an AI memory process.
 
@@ -573,37 +604,41 @@ When possible, consolidation should produce reviewable changes rather than silen
 
 If an AI platform offers background memory consolidation, dream-like memory updates, or agent memory refinement, Continuity can use it as a consolidation engine. The output should still be treated as a proposed update to a governed continuity layer, not as unquestioned truth.
 
-## 14. Interoperability
+## 15. Interoperability
 
 Continuity can be implemented in many substrates.
 
-### 14.1 Plain Files
+Practical compatibility depends on access. A model in a browser chat with no local file access can discuss Continuity and draft files, but it cannot automatically install or maintain a local continuity folder. A file-access agent can create, read, and update the layer directly.
+
+### 15.1 Plain Files
 
 Use markdown files in a folder. This is the default and most portable implementation.
 
-### 14.2 GitHub
+### 15.2 GitHub
 
 Use a repository for templates, versioning, issue tracking, and collaboration.
 
 Nontechnical users do not need to understand Git. They can point an AI assistant at the repository and ask it to set up the files.
 
-### 14.3 Obsidian Or Wikis
+### 15.3 Obsidian Or Wikis
 
 Use notes, folders, backlinks, and tags. Keep the register separation visible.
 
-### 14.4 AI Project Spaces
+### 15.4 AI Project Spaces
 
 Use project instructions, project files, saved context, or uploaded markdown. Keep stable context separate from current context where the platform allows.
 
-### 14.5 Managed Agent Memory Stores
+If the project space can store files but not let the AI create folders or save edits, treat it as a partial implementation and use manual updates.
+
+### 15.5 Managed Agent Memory Stores
 
 Use memory stores for persistent agent-readable records. If the platform supports separate stores, separate shared reference context from user-specific or project-specific memory.
 
-### 14.6 Databases Or Knowledge Graphs
+### 15.6 Databases Or Knowledge Graphs
 
 Use structured storage only when it helps. The human-readable continuity layer remains the reference interface.
 
-## 15. Minimum Compatibility Standard
+## 16. Minimum Compatibility Standard
 
 A system is Continuity-compatible if it satisfies these minimum conditions:
 
@@ -615,10 +650,11 @@ A system is Continuity-compatible if it satisfies these minimum conditions:
 6. The human can revise, supersede, archive, or delete memory.
 7. A future AI assistant can read the continuity layer and know how strongly to treat each kind of record.
 8. Stale, archived, superseded, inferred, and provisional records are visibly distinguishable when they matter.
+9. The human can use `Start continuity` and `Stop continuity` instead of long prompts once setup is complete.
 
 Everything beyond that is implementation detail.
 
-## 16. AI Assistant Responsibilities
+## 17. AI Assistant Responsibilities
 
 When an AI assistant is asked to use Continuity, it should:
 
@@ -644,7 +680,7 @@ The assistant should not:
 - hide uncertainty in clean summaries
 - make the system dependent on tools the human did not choose
 
-## 17. Human Responsibilities
+## 18. Human Responsibilities
 
 The human does not need to maintain a perfect system.
 
@@ -659,7 +695,7 @@ The human should:
 
 Continuity is meant to reduce repetition, not create homework.
 
-## 18. Version Notes
+## 19. Version Notes
 
 This is draft v0.1.
 

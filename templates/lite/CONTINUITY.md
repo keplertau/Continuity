@@ -4,6 +4,14 @@ This file helps future AI sessions understand the current context before answeri
 
 Keep it short enough that an AI can read it at the start of a conversation.
 
+## Commands
+
+`Start continuity` means: read this file, use current context and active decisions, and flag stale, inferred, provisional, contradictory, archived, or superseded items before relying on them.
+
+`Stop continuity` means: update this file with what changed, keeping current context short and preserving decisions, open threads, evidence, and session notes in the right sections.
+
+If you cannot read or edit this file directly, say so and draft the needed updates in chat.
+
 ## Status Markers
 
 Use these when ambiguity matters:
