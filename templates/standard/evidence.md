@@ -6,6 +6,12 @@ A summary is not the same as evidence. When a claim matters, keep the source rea
 
 Direct evidence outranks summaries. If a summary conflicts with a source, flag the conflict and check the source.
 
+## Maintenance
+
+Last reviewed:
+Last edited:
+Last edited by:
+
 ## Source Index
 
 Use this format:
@@ -17,18 +23,18 @@ Use this format:
 
 ## Important Links
 
-- 
+- [add item]
 
 ## Important Files Or Notes
 
-- 
+- [add item]
 
 ## Transcript Pointers
 
-- 
+- [add item]
 
 ## Unverified Claims
 
 Claims that may be useful but do not yet have clear evidence.
 
-- 
+- [add item]

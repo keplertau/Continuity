@@ -10,6 +10,15 @@ Created from Continuity version: 0.1.0
 Created from Continuity commit: example-only
 Created on: 2026-05-08
 
+Continuity location: example file
+
+## Maintenance
+
+Last reviewed: 2026-05-08
+Last edited: 2026-05-08
+Last edited by: example
+Meaningful sessions since cleanup: 1
+
 ## Status Markers
 
 - `[CONFIRMED YYYY-MM-DD]`
@@ -20,6 +29,8 @@ Created on: 2026-05-08
 - `[SUPERSEDED YYYY-MM-DD]`
 - `[STALE - REVIEW]`
 - `[UNVERIFIED]`
+- `[LAST-REVIEWED YYYY-MM-DD]`
+- `[CONFLICTS-WITH file#section-or-item]`
 
 ## Current Context
 
@@ -28,6 +39,10 @@ Review this section at session start.
 - `[ACTIVE 2026-05-08]` The current project is a nonfiction book draft about how ordinary people can use AI without losing authorship of their own thinking.
 - `[ACTIVE 2026-05-08]` The immediate task is shaping Chapter 2 from rough notes into a readable outline.
 - `[ACTIVE 2026-05-08]` Before giving structural advice, read the latest chapter notes if available.
+
+## Next Session Should Start By
+
+- Read `chapter-2-notes.md` if available, then draft a Chapter 2 outline.
 
 ## Stable Preferences
 

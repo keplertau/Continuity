@@ -4,6 +4,12 @@ This file holds decisions that should not be casually contradicted in future ses
 
 Distinguish confirmed decisions from provisional leanings.
 
+## Maintenance
+
+Last reviewed:
+Last edited:
+Last edited by:
+
 ## Authority Rule
 
 Active confirmed decisions are authoritative for resolved questions. If another continuity file contradicts an active decision, flag the conflict instead of choosing silently.
@@ -16,6 +22,8 @@ Use this format:
   Rationale:
   Constrains:
   Evidence:
+  Last reviewed:
+  Conflicts with:
 
 ## Provisional Leanings
 
@@ -26,6 +34,7 @@ Use this format:
 - `[PROVISIONAL YYYY-MM-DD]` - Leaning:
   Why it seems plausible:
   What would change it:
+  Conflicts with:
 
 ## Archived Decisions
 

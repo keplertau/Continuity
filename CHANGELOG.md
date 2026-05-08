@@ -9,6 +9,7 @@ Continuity uses Git tags such as `v0.1.0` for public release points. Template, p
 ### Changed
 
 - Replaced the original illustrative raster logo with a cleaner vector mark and regenerated the 512 x 512 PNG export.
+- Added lightweight maintenance conventions for review markers, conflict pointers, graduated context loading, session handoff notes, merge/prune cleanup, multi-agent edit metadata, and human-findable install locations.
 
 ## [0.1.0] - 2026-05-08
 
@@ -28,7 +29,7 @@ First public pattern-kit baseline.
 ### Template Notes
 
 - Lite setup starts from one `CONTINUITY.md` file.
-- Standard setup starts from a small `continuity/` folder with current context, preferences, decisions, open threads, evidence, and session log files.
+- Standard setup starts from a small `continuity/` folder with an index, current context, preferences, decisions, open threads, evidence, and session log files.
 - Generated setups should record the Continuity version and source commit when available.
 
 ### Spec Notes

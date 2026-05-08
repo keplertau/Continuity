@@ -20,6 +20,7 @@ Hard constraints:
 - Do not require a database, server, plugin, command-line workflow, or paid platform unless I explicitly ask for that.
 - If you cannot create or edit files, say so clearly and offer a manual fallback.
 - If I am on a phone, tablet, or browser chat with no file access, default to Lite Manual Mode.
+- Put Continuity somewhere I can find again. Avoid hidden app folders, temp folders, assistant sandboxes, cache directories, and deep cloud paths unless I explicitly choose them.
 - Do not import everything. Place memory carefully.
 - Do not treat your own inference as confirmed fact.
 - Do not turn passing moods, temporary preferences, or old self-descriptions into permanent identity claims.
@@ -39,7 +40,15 @@ Then ask only these required setup questions:
 1. Ask me what this continuity layer is for: personal use, a project, a team, research, writing, software, ordinary life, or something else.
 2. Ask where you can create or update the Continuity files.
 
-If the answer is obvious from the environment, proceed without asking.
+If the answer is obvious from the environment, proceed without asking, but still use a human-findable location.
+
+Good default locations include:
+- the project folder I am already working in
+- Desktop or Documents
+- iCloud Drive, Google Drive, Shared Drive, Dropbox, or OneDrive
+- an Obsidian vault, Notion export folder, wiki folder, or GitHub repository
+
+If you are about to create Continuity somewhere non-obvious, show me the full path and ask first.
 
 If you do not have file access:
 - Say that automatic setup will not work in this chat.
@@ -56,6 +65,7 @@ Lite:
 
 Standard:
 - A small continuity folder:
+  continuity/index.md
   continuity/current.md
   continuity/preferences.md
   continuity/decisions.md
@@ -86,10 +96,13 @@ Use these status markers when ambiguity matters:
 - [SUPERSEDED YYYY-MM-DD]
 - [STALE - REVIEW]
 - [UNVERIFIED]
+- [LAST-REVIEWED YYYY-MM-DD]
+- [CONFLICTS-WITH file#section-or-item]
 
 Current context:
 - Keep short.
 - Include what matters now.
+- Include a "Next Session Should Start By" handoff when useful.
 - Remove or revise when it stops being current.
 - Review at session start.
 
@@ -110,6 +123,7 @@ Open threads:
 - Preserve unresolved questions, tensions, hypotheses, risks, and watchpoints.
 - Do not collapse open tensions into fake certainty.
 - Make it easy to resume thinking later.
+- Mark contradictions with [CONFLICTS-WITH file#section-or-item] when useful.
 - If an open thread resolves, move the result into decisions or current context and mark the thread resolved.
 
 Evidence:
@@ -120,8 +134,9 @@ Evidence:
 Session log:
 - Record meaningful changes after a session.
 - Do not record every small exchange.
-- Capture what changed, what files were updated, what was not captured elsewhere, evidence pointers, and what should happen next.
+- Capture what changed, what files were updated, what was not captured elsewhere, evidence pointers, and what the next session should start by.
 - Do not duplicate every item from current context, decisions, and open threads.
+- After roughly 10 meaningful sessions, propose a merge/prune pass.
 
 Conflict rules:
 - Human correction in the current session outranks stored memory.
@@ -131,6 +146,17 @@ Conflict rules:
 - If files conflict, flag the conflict instead of choosing silently.
 
 When creating files, include simple headings and short instructions inside each file so future AI assistants know how to use them.
+
+For Standard setup, create `index.md` so future sessions can load context gradually:
+- Hot files: read at `Start continuity`.
+- Warm files: read when relevant.
+- Cold files: read when evidence, history, or exact wording matters.
+
+Add lightweight maintenance fields where useful:
+- `Last reviewed:`
+- `Last edited:`
+- `Last edited by:`
+- `Meaningful sessions since cleanup:`
 
 Also include setup provenance in the generated continuity layer:
 - `Created from Continuity version:` use the `VERSION` file if available.

@@ -163,6 +163,26 @@ Dogfood testing on 2026-05-08 clarified the adoption surface:
 - User-facing session commands are now `Start continuity` and `Stop continuity`; the detailed behavior lives in the docs and templates rather than in long user prompts.
 - Setup should ask only what is needed to create the first useful layer. Do not ask gating questions about willingness to maintain distinctions.
 - Releases use `VERSION`, `CHANGELOG.md`, and Git tags such as `v0.1.0`; generated setups record the Continuity version and source commit when available.
+- Continuity should be installed in a human-findable location, not hidden deep in an assistant, temp, cloud, cache, or sandbox folder.
+- Standard setup now includes an `index.md` for hot/warm/cold context loading plus lightweight maintenance conventions: last reviewed, last edited by, conflict pointers, next-session handoff, and merge/prune cleanup after roughly 10 meaningful sessions.
+
+## Session Governance
+
+Continuity is now its own public GitHub project.
+
+For Continuity repo changes:
+
+- Record user-facing template, prompt, spec, asset, and protocol changes in `CHANGELOG.md`.
+- Commit and push changes to the Continuity repo.
+- Use Git tags such as `v0.1.0` for public release points, not every small edit.
+- Do not treat Continuity repo changes as Meridian Codex or Meridian AI Standard changelog entries unless those public surfaces also changed.
+
+For the wider Projects Archive:
+
+- Working sessions about Continuity still get captured by the shared Archive end-of-session protocol when Carsten closes a session in the Projects workspace.
+- Archive session entities should link to Continuity commits, tags, decisions, and pending article/distribution work.
+- Architectural rules established for Continuity may deserve decision entities when they constrain future sessions.
+- A CarstenGeiser article about Continuity should be treated as distribution and interpretation, not as the canonical source of the Continuity protocol. The canonical source is the GitHub repo.
 
 Next work:
 
@@ -171,6 +191,7 @@ Next work:
 3. Add examples for project use, Obsidian/wiki use, and managed-agent memory stores.
 4. Decide whether the first GitHub repo should include a minimal release marker before publication.
 5. Continue compatibility testing across file-access agents, project-file assistants, and browser-only chat tools.
+6. Draft a CarstenGeiser article that introduces Continuity publicly and links to the GitHub repo without making the article the source of truth.
 
 ## Current Positioning
 

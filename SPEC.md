@@ -148,6 +148,25 @@ Continuity must make old context easier to detect.
 
 Current context should be reviewed at session start. Preferences should carry a last-reviewed date when they may shape future behavior. Decisions should distinguish active from archived or superseded items.
 
+### 5.10 Human-Findable Location
+
+Continuity should live somewhere the human can find again.
+
+Good default locations include a project folder, Desktop, Documents, iCloud Drive, Google Drive, Shared Drive, Dropbox, OneDrive, Obsidian vault, Notion export folder, wiki folder, or GitHub repository.
+
+Implementations should avoid hidden app folders, temp folders, assistant sandboxes, cache directories, deep cloud paths, and ephemeral workspaces unless the human explicitly chooses them.
+
+### 5.11 Multi-Agent Awareness
+
+When multiple AI tools or sessions may use the same Continuity layer, files should include lightweight edit metadata such as:
+
+```text
+Last edited:
+Last edited by:
+```
+
+This is not a locking system. It is a visibility aid that helps humans and AIs notice possible overlap.
+
 ## 6. Setup Levels
 
 Continuity has three recommended setup levels.
@@ -184,6 +203,7 @@ Standard is a small folder:
 
 ```text
 continuity/
+  index.md
   current.md
   preferences.md
   decisions.md
@@ -208,6 +228,8 @@ Project adds more formal structure:
 
 ```text
 continuity/
+  index.md
+  current.md
   briefings/
   decisions/
   sessions/
@@ -423,6 +445,8 @@ The AI should read the relevant Continuity files, use current context and active
 
 The AI should keep this light. It does not need to recite every file it read. It should mention records used only when they materially affect the task.
 
+If `index.md` exists, the AI should use its hot, warm, and cold loading priorities.
+
 If the AI does not know where the Continuity files live, it should ask for the file or folder location once.
 
 ### 8.2 Stop continuity
@@ -451,6 +475,8 @@ Recommended markers:
 - `[SUPERSEDED YYYY-MM-DD]` - replaced by a later decision or description.
 - `[STALE - REVIEW]` - may be outdated and should be checked before use.
 - `[UNVERIFIED]` - plausible or useful, but no clear evidence yet.
+- `[LAST-REVIEWED YYYY-MM-DD]` - reviewed on this date for current usefulness.
+- `[CONFLICTS-WITH file#section-or-item]` - may contradict another continuity record.
 
 Not every item needs a marker. Items that can affect future behavior should be marked when there is any ambiguity.
 
@@ -531,17 +557,51 @@ During updates, the AI should:
 
 Decay is normal. The goal is not permanent memory. The goal is memory that knows when it should stop steering behavior.
 
+### 11.7 Session Handoff
+
+Continuity layers should preserve a short handoff for the next session when useful.
+
+Recommended wording:
+
+```text
+Next session should start by:
+```
+
+The handoff should contain one or two concrete starting points, not a second session summary.
+
+### 11.8 Merge/Prune Ritual
+
+After roughly 10 meaningful sessions, the AI should propose a merge/prune pass.
+
+The pass should check whether:
+
+- current context has grown stale
+- decisions should be archived or superseded
+- open threads have quietly resolved
+- preferences need review
+- session notes can be compressed
+- evidence pointers are preserved before summaries are removed
+
+This should remain a lightweight cleanup ritual, not a database migration.
+
 ## 12. Retrieval Discipline
 
 At the start of a session, an AI assistant should read the smallest set of Continuity records needed for the task.
 
 Default read order:
 
-1. Current context
-2. Preferences or working agreements
+1. `index.md`, if present
+2. Current context
 3. Decisions relevant to the task
-4. Open threads relevant to the task
-5. Evidence only when claims matter or action is high-impact
+4. Preferences or working agreements relevant to the task
+5. Open threads relevant to the task
+6. Evidence only when claims matter or action is high-impact
+
+If the Continuity layer defines hot, warm, and cold files:
+
+- hot files are read at `Start continuity`
+- warm files are read when relevant
+- cold files are read when evidence, history, or exact wording matters
 
 For simple tasks, do not over-read.
 
@@ -682,6 +742,7 @@ A system is Continuity-compatible if it satisfies these minimum conditions:
 8. Stale, archived, superseded, inferred, and provisional records are visibly distinguishable when they matter.
 9. The human can use `Start continuity` and `Stop continuity` instead of long prompts once setup is complete.
 10. Generated setups record the Continuity version and source commit when available.
+11. The continuity layer lives somewhere the human can find again, or the location is recorded clearly.
 
 Everything beyond that is implementation detail.
 
@@ -692,10 +753,12 @@ When an AI assistant is asked to use Continuity, it should:
 - read the relevant Continuity files before answering
 - keep setup as small as practical
 - ask only necessary setup questions
+- use a human-findable location and show the full path when location may be unclear
 - mark inference as inference
 - distinguish decisions from leanings
 - use the status markup convention when ambiguity matters
 - record setup provenance when creating a new continuity layer
+- use graduated loading when an index or equivalent priority map exists
 - flag conflicts between registers
 - preserve unresolved questions
 - connect important claims to evidence
@@ -711,6 +774,7 @@ The assistant should not:
 - resolve contradictions silently
 - hide uncertainty in clean summaries
 - invent a source version or commit
+- hide Continuity inside an obscure folder unless the human explicitly chose it
 - make the system dependent on tools the human did not choose
 
 ## 19. Human Responsibilities

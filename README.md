@@ -97,6 +97,20 @@ The key question is not which AI model you use. The key question is whether that
 
 If your AI cannot create folders or edit files, that is an environment limitation, not a Continuity failure. Use the Lite template manually, upload the files into a project space, or switch to a tool that has file access.
 
+### Choose A Place You Can Find Again
+
+Continuity should live somewhere obvious to you, not somewhere convenient only to the AI.
+
+Good places include:
+
+- the project folder you are already working in
+- Desktop or Documents
+- iCloud Drive, Google Drive, Shared Drive, Dropbox, or OneDrive
+- an Obsidian vault, Notion export folder, or wiki folder
+- a GitHub repository
+
+Avoid hidden app folders, temp folders, assistant sandboxes, cache directories, and deep cloud paths you will not naturally revisit. If the AI proposes a location you do not recognize, ask it to show the full path before it creates anything.
+
 ### Phones And Tablets
 
 If you are on an iPhone, Android phone, or tablet, use the simplest path first.
@@ -140,7 +154,7 @@ Continuity can be as small or as structured as you need.
 | Level | Best For | What It Creates |
 |---|---|---|
 | **Lite** | Personal use, first experiments, simple context | One `CONTINUITY.md` file |
-| **Standard** | Ongoing projects, writing, research, repeated AI work | A small `continuity/` folder with focused files |
+| **Standard** | Ongoing projects, writing, research, repeated AI work | A small `continuity/` folder with an index and focused files |
 | **Project** | Teams, long-running workspaces, agents, governance | Briefings, decision records, session notes, evidence, and process files |
 
 You can start Lite and grow later.
@@ -180,6 +194,8 @@ Use compact markers when a memory item could shape future AI behavior:
 [SUPERSEDED 2026-05-08]
 [STALE - REVIEW]
 [UNVERIFIED]
+[LAST-REVIEWED 2026-05-08]
+[CONFLICTS-WITH decisions.md#active-confirmed-decisions]
 ```
 
 These markers keep future AI assistants from treating guesses as facts, current concerns as permanent identity, or old decisions as still active.
@@ -221,6 +237,8 @@ It demonstrates the basic rhythm: current context stays short, preferences stay 
 
 **Use the tools already present.** Continuity should work inside existing folders, notes apps, wikis, repositories, and AI project spaces.
 
+**Keep the location findable.** Continuity should live somewhere the human can reopen without remembering a hidden path.
+
 **Keep memory inspectable.** The human should be able to see and edit what the AI is treating as context.
 
 **Separate memory by function.** Current context, stable preferences, decisions, open questions, evidence, and history should not be flattened together.
@@ -242,6 +260,8 @@ If you are an AI assistant reading this repository because a human asked you to 
 Your job is not to build the most complete system. Your job is to give the human a continuity layer they will actually use.
 
 Default to the smallest useful setup. Ask only the questions you need. Prefer plain markdown. Use whatever storage system the human already has.
+
+Place the files somewhere the human can find again. If the location is not obvious, show the full path and ask before creating the layer.
 
 ## Project Status
 

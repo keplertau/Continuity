@@ -36,6 +36,14 @@ If the AI says it cannot access folders, use Manual Mode:
 Please create a Lite CONTINUITY.md for me in this chat so I can copy it into a file myself.
 ```
 
+## Choose A Location
+
+Pick a place you can find again.
+
+Good choices: your project folder, Desktop, Documents, iCloud Drive, Google Drive, Shared Drive, Dropbox, OneDrive, Obsidian, Notion, a wiki folder, or GitHub.
+
+Avoid hidden app folders, temp folders, assistant sandboxes, cache directories, and deep cloud paths. If the AI suggests a path you do not recognize, ask it to show the full path before it creates anything.
+
 ## Choose A Setup Level
 
 Choose **Lite** if you want the simplest possible version.
@@ -56,6 +64,7 @@ Standard creates:
 
 ```text
 continuity/
+  index.md
   current.md
   preferences.md
   decisions.md
@@ -99,6 +108,8 @@ Use a small shared notation when ambiguity matters:
 [SUPERSEDED 2026-05-08]
 [STALE - REVIEW]
 [UNVERIFIED]
+[LAST-REVIEWED 2026-05-08]
+[CONFLICTS-WITH decisions.md#active-confirmed-decisions]
 ```
 
 You do not need to label everything. Label anything that could shape future AI behavior.

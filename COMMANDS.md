@@ -13,9 +13,10 @@ Start continuity
 When an AI assistant sees this command, it should:
 
 1. Read the relevant Continuity files.
-2. Use current context, active decisions, open threads, preferences, and evidence pointers as needed.
-3. Flag stale, inferred, provisional, contradictory, archived, or superseded items before relying on them.
-4. Keep the response brief unless the human asks for detail.
+2. If `index.md` exists, use its hot, warm, and cold loading priorities.
+3. Use current context, active decisions, open threads, preferences, and evidence pointers as needed.
+4. Flag stale, inferred, provisional, contradictory, archived, or superseded items before relying on them.
+5. Keep the response brief unless the human asks for detail.
 
 The AI does not need to recite every file it read. It should mention records used only when they materially affect the task.
 
@@ -36,7 +37,10 @@ When an AI assistant sees this command, it should:
 3. Record decisions, open threads, preference updates, evidence pointers, and session notes in the right places.
 4. Use status markers when ambiguity matters.
 5. Avoid turning temporary states into permanent identity claims.
-6. Keep the session log focused on what changed and what was updated elsewhere.
+6. Add or revise the "next session should start by" handoff when useful.
+7. Update `Last edited` and `Last edited by` fields when present.
+8. Keep the session log focused on what changed and what was updated elsewhere.
+9. If roughly 10 meaningful sessions have passed since cleanup, propose a merge/prune pass.
 
 ## Important
 
