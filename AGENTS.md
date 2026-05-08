@@ -143,12 +143,23 @@ First public-facing draft created 2026-05-08:
 - `templates/lite/CONTINUITY.md` - one-file starter
 - `templates/standard/` - current context, preferences, decisions, open threads, evidence, session log
 - `LICENSE`, `CITATION.cff`, and `NOTICE` - permissive use with preserved attribution
+- `assets/` - first visual identity package for the GitHub landing surface
+- `examples/personal-writer/CONTINUITY.md` - first Lite worked example
+
+Protocol hardening landed 2026-05-08 after Opus 4.7 review:
+
+- Continuity is framed as a shared context discipline the human owns, not only memory the AI uses.
+- Status markers formalized: `[CONFIRMED]`, `[PROVISIONAL]`, `[INFERRED]`, `[ACTIVE]`, `[ARCHIVED]`, `[SUPERSEDED]`, `[STALE - REVIEW]`, `[UNVERIFIED]`.
+- Staleness and decay rules added for current context, preferences, decisions, and open threads.
+- Conflict hierarchy added: current-session human correction and evidence outrank summaries; confirmed active decisions outrank current context on resolved questions.
+- Session log role narrowed to changes, file updates, evidence pointers, and uncaptured residue rather than a duplicate diary.
+- AI behavioral contract added for start-of-session reading, contradiction handling, and end-of-session updates.
 
 Next work:
 
 1. Decide whether "Continuity" remains the final public name or only the working title.
 2. Add project-mode templates without making the default setup too heavy.
-3. Add examples for personal use, project use, Obsidian/wiki use, and managed-agent memory stores.
+3. Add examples for project use, Obsidian/wiki use, and managed-agent memory stores.
 4. Decide whether the first GitHub repo should include a minimal release marker before publication.
 5. Test the setup prompt by giving the repository to a fresh AI assistant and seeing whether it can scaffold a useful Continuity layer without extra explanation.
 

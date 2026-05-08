@@ -7,17 +7,17 @@ Date: 2026-05-08
 
 ## 1. Purpose
 
-Continuity is a provider-neutral context system for human-AI work.
+Continuity is a provider-neutral context discipline for human-AI work.
 
 It helps a human and AI keep a coherent working relationship across chats, projects, tools, and time by separating memory into functional registers: current context, stable preferences, decisions, open threads, evidence, session notes, and optional process records.
 
 Continuity is not tied to one storage system. It can be implemented in plain markdown, GitHub, Obsidian, a wiki, a project folder, an AI project space, managed agent memory stores, databases, or future AI memory tools.
 
-The purpose of this specification is to define the placement rules that make Continuity work across all of those substrates.
+The purpose of this specification is to define the placement rules and reading behavior that make Continuity work across all of those substrates.
 
 ## 2. Core Claim
 
-AI memory becomes more useful when it is governed by function and authority.
+Human-AI context becomes more useful when memory is governed by function and authority.
 
 A human-AI continuity layer should make clear:
 
@@ -30,7 +30,7 @@ A human-AI continuity layer should make clear:
 - what should be read before strong advice or action
 - what belongs in history rather than near the surface
 
-The system fails when all of that becomes one undifferentiated memory bucket.
+The system fails when all of that becomes one undifferentiated memory bucket. It also fails when the human stops curating the distinctions. Continuity is not only memory the AI uses; it is a shared discipline the human owns.
 
 ## 3. Scope
 
@@ -60,26 +60,35 @@ Those can be useful substrates. They are not required.
 
 ## 4. Definitions
 
-**Continuity layer**  
+**Continuity layer**
 The set of files, notes, records, or memory stores that a human and AI use to preserve working context across time.
 
-**Substrate**  
+**Substrate**
 The place the continuity layer lives. Examples: a markdown folder, GitHub repo, Obsidian vault, wiki, chat project, managed agent memory store, local database, or hosted workspace.
 
-**Register**  
+**Register**
 A functional memory category. Each register has a different job and a different level of authority.
 
-**Authority**  
+**Authority**
 How strongly future AI sessions should treat a memory item. A confirmed decision has higher authority than a provisional hypothesis. A transcript has higher evidential authority than a summary.
 
-**Evidence**  
+**Evidence**
 The source material that supports or corrects a memory item: transcript, note, document, link, file, citation, chat export, or other record.
 
-**Consolidation**  
+**Consolidation**
 The process of reviewing previous conversations, notes, and records to update the continuity layer. This may be done manually, by an AI assistant at session end, by a scheduled task, or by an agent memory process.
 
-**Staleness**  
+**Staleness**
 The risk that a memory item used to be true but no longer reflects the human, project, situation, or evidence.
+
+**Status marker**
+A compact label that tells future AI sessions how strongly to treat an item, for example `[CONFIRMED 2026-05-08]` or `[INFERRED 2026-05-08]`.
+
+**Active**
+Currently operative. The item should affect future AI behavior unless contradicted by newer evidence or human correction.
+
+**Archived**
+Preserved for history but not currently operative. The item may explain why something changed, but should not steer behavior by default.
 
 ## 5. Design Requirements
 
@@ -131,6 +140,12 @@ The smallest useful setup is valid.
 
 A single `CONTINUITY.md` file can be a complete Continuity implementation if it separates memory clearly enough for the user's needs.
 
+### 5.9 Staleness Resistance
+
+Continuity must make old context easier to detect.
+
+Current context should be reviewed at session start. Preferences should carry a last-reviewed date when they may shape future behavior. Decisions should distinguish active from archived or superseded items.
+
 ## 6. Setup Levels
 
 Continuity has three recommended setup levels.
@@ -159,6 +174,8 @@ Lite should include headings for:
 - evidence
 - session notes
 
+Lite should propose upgrading to Standard when the file becomes hard to scan, covers several unrelated domains, or grows beyond roughly 1,500 words.
+
 ### 6.2 Standard
 
 Standard is a small folder:
@@ -180,6 +197,8 @@ Standard is best for:
 - serious personal planning
 - repeated AI work
 - users who want separation without heavy structure
+
+Standard should propose upgrading to Project when decisions, evidence, session notes, or recurring processes become difficult to audit in a single folder.
 
 ### 6.3 Project
 
@@ -228,6 +247,8 @@ Project should not be the default for ordinary users.
 
 **Update cadence:** Often. Revise whenever the situation changes.
 
+**Decay rule:** Review at session start. If an item no longer matters now, move it to session notes, evidence, an archive section, or remove it.
+
 **Failure mode:** Old current context keeps steering future sessions after it stops being current.
 
 ### 7.2 Preferences And Identity Context
@@ -248,6 +269,8 @@ Project should not be the default for ordinary users.
 **Authority:** Medium to high when confirmed, low when inferred.
 
 **Update cadence:** Periodic review. Revise when the human corrects it.
+
+**Decay rule:** Items that shape future behavior should carry a last-reviewed date. If a preference has not been reviewed for six months, the AI should surface it as possibly stale before relying on it strongly.
 
 **Failure mode:** The AI turns a temporary mood, old preference, or weak inference into a permanent identity claim.
 
@@ -270,6 +293,8 @@ Project should not be the default for ordinary users.
 
 **Update cadence:** Event-driven. Add when decisions are made. Mark superseded decisions rather than deleting them silently.
 
+**Decay rule:** Decisions should be marked `Active`, `Archived`, or `Superseded` when their status matters. Archived decisions explain history but should not steer current behavior by default.
+
 **Failure mode:** Provisional leanings harden into decisions, or confirmed decisions disappear from working context.
 
 ### 7.4 Open Threads
@@ -290,6 +315,8 @@ Project should not be the default for ordinary users.
 **Authority:** Medium. Open threads are not conclusions.
 
 **Update cadence:** Review when the topic resurfaces or during periodic consolidation.
+
+**Decay rule:** If an open thread resolves, move the result into decisions or current context and mark the thread resolved. Do not leave resolved questions open forever.
 
 **Failure mode:** The AI cleans up uncertainty by inventing a settled answer.
 
@@ -318,7 +345,7 @@ Project should not be the default for ordinary users.
 
 ### 7.6 Session Log
 
-**Job:** Record meaningful changes after important conversations.
+**Job:** Record meaningful changes after important conversations without duplicating every register.
 
 **Typical file:** `session-log.md` or records under `sessions/`.
 
@@ -326,16 +353,16 @@ Project should not be the default for ordinary users.
 
 - what happened
 - what changed
-- decisions made
-- open threads
-- evidence added
+- what was updated in other files
+- what was not captured elsewhere
+- transcript or source pointers
 - next steps
 
 **Authority:** Medium. Session logs summarize. Evidence records outrank them when exact wording matters.
 
 **Update cadence:** End of meaningful sessions. Do not log every small exchange.
 
-**Failure mode:** Too much logging creates noise, or too little logging breaks continuity.
+**Failure mode:** The session log becomes a redundant diary that duplicates current context, decisions, and open threads instead of recording what changed.
 
 ### 7.7 Process Context
 
@@ -378,24 +405,50 @@ Project should not be the default for ordinary users.
 
 **Failure mode:** Briefings drift from the underlying records.
 
-## 8. Authority Levels
+## 8. Status Markup
 
-Continuity implementations should mark authority when it matters.
+Continuity implementations should use a small shared notation for load-bearing distinctions.
 
-Recommended authority labels:
+Recommended markers:
 
-- `Confirmed` - reviewed or directly stated by the human, currently operative.
-- `Provisional` - useful but not settled.
-- `Inferred` - inferred by the AI, awaiting confirmation.
-- `Superseded` - replaced by a later decision or description.
-- `Historical` - preserved for context but should not steer current behavior.
-- `Unverified` - plausible or useful, but no clear evidence yet.
+- `[CONFIRMED YYYY-MM-DD]` - reviewed or directly stated by the human, currently operative.
+- `[PROVISIONAL YYYY-MM-DD]` - useful but not settled.
+- `[INFERRED YYYY-MM-DD]` - inferred by the AI, awaiting human confirmation.
+- `[ACTIVE YYYY-MM-DD]` - currently operative.
+- `[ARCHIVED YYYY-MM-DD]` - preserved for history, not steering current behavior by default.
+- `[SUPERSEDED YYYY-MM-DD]` - replaced by a later decision or description.
+- `[STALE - REVIEW]` - may be outdated and should be checked before use.
+- `[UNVERIFIED]` - plausible or useful, but no clear evidence yet.
 
-Not every item needs a label. Items that can affect future behavior should be labelled when there is any ambiguity.
+Not every item needs a marker. Items that can affect future behavior should be marked when there is any ambiguity.
 
-## 9. Update Rules
+AI assistants should preserve existing markers unless the human changes them or the session clearly updates the item.
 
-### 9.1 Capture
+## 9. Authority And Conflict Rules
+
+Continuity implementations should make authority explicit when it matters.
+
+Canonicality rules:
+
+1. Human correction in the current session outranks stored memory.
+2. Direct evidence outranks summaries.
+3. Confirmed decisions outrank current context when they address the same question.
+4. Active decisions outrank open threads on resolved questions.
+5. Current context outranks older preferences for immediate situational facts.
+6. Newer records usually outrank older records unless the older record is explicitly marked canonical.
+7. Archived and superseded items explain history but should not steer current behavior by default.
+
+If records conflict, the AI should flag the conflict rather than silently choosing a side.
+
+Example:
+
+```text
+I see a conflict: current.md says X, but decisions.md has an active confirmed decision saying not-X. I will treat decisions.md as authoritative unless you want to revise it.
+```
+
+## 10. Update Rules
+
+### 10.1 Capture
 
 At the end of a meaningful session, capture:
 
@@ -408,31 +461,45 @@ At the end of a meaningful session, capture:
 
 Do not capture everything.
 
-### 9.2 Placement
+### 10.2 Placement
 
 Place each item in the register where it belongs.
 
 A decision does not belong in current context only. A temporary worry does not belong in stable preferences. A transcript pointer does not belong only in a summary.
 
-### 9.3 Review
+### 10.3 Review
 
 Review identity-level and preference-level memory with care.
 
 If the AI is not sure whether something is stable, mark it as inferred or provisional.
 
-### 9.4 Supersession
+### 10.4 Supersession
 
 When something changes, do not silently erase the old item if the change matters.
 
 Mark it as superseded, historical, or retired. Note what replaced it.
 
-### 9.5 Deletion
+### 10.5 Deletion
 
 The human may delete any continuity item.
 
 AI assistants should not resist deletion. They may ask whether evidence should be preserved when deletion would remove the only source pointer for a load-bearing claim.
 
-## 10. Retrieval Discipline
+### 10.6 Staleness And Decay
+
+At session start, the AI should check whether current context appears stale.
+
+During updates, the AI should:
+
+- remove stale items from current context
+- mark old preferences `[STALE - REVIEW]` when they may affect behavior and have not been reviewed recently
+- move resolved open threads to decisions or a resolved section
+- mark decisions active, archived, or superseded when their status changes
+- preserve evidence pointers before deleting load-bearing summaries
+
+Decay is normal. The goal is not permanent memory. The goal is memory that knows when it should stop steering behavior.
+
+## 11. Retrieval Discipline
 
 At the start of a session, an AI assistant should read the smallest set of Continuity records needed for the task.
 
@@ -448,14 +515,38 @@ For simple tasks, do not over-read.
 
 For high-impact tasks, read evidence before making strong claims.
 
-If records conflict:
+If records conflict, use the authority and conflict rules above. Do not invent a private ranking.
 
-1. Direct evidence outranks summaries.
-2. Confirmed decisions outrank provisional notes.
-3. Newer records usually outrank older records unless the older record is explicitly marked canonical.
-4. Human correction in the current session outranks stored memory.
+When the task is sensitive, high-impact, or identity-shaping, the AI should briefly tell the human what continuity records it used and flag any stale or conflicting items.
 
-## 11. Consolidation Rules
+## 12. AI Behavioral Contract
+
+When an AI assistant uses a Continuity layer, it should follow this contract.
+
+At session start:
+
+1. Read the relevant Continuity files before answering.
+2. Identify stale markers, conflicts, and load-bearing decisions relevant to the task.
+3. Briefly restate what it is using when the task depends on stored context.
+4. Ask for clarification before relying on an inferred or stale identity-level claim.
+
+During the session:
+
+1. Prefer confirmed decisions over its own inference.
+2. Preserve open questions as open.
+3. Mark uncertainty visibly.
+4. Do not turn a temporary emotional state or passing preference into stable memory.
+5. Flag contradictions between registers.
+
+At session end:
+
+1. Update only the registers that changed.
+2. Use the status markup convention.
+3. Keep session log entries focused on what changed and what was updated elsewhere.
+4. Preserve evidence pointers for load-bearing claims.
+5. Propose cleanup when Lite or Standard has outgrown its setup level.
+
+## 13. Consolidation Rules
 
 Consolidation may happen manually, at session end, on a schedule, or through an AI memory process.
 
@@ -482,37 +573,37 @@ When possible, consolidation should produce reviewable changes rather than silen
 
 If an AI platform offers background memory consolidation, dream-like memory updates, or agent memory refinement, Continuity can use it as a consolidation engine. The output should still be treated as a proposed update to a governed continuity layer, not as unquestioned truth.
 
-## 12. Interoperability
+## 14. Interoperability
 
 Continuity can be implemented in many substrates.
 
-### 12.1 Plain Files
+### 14.1 Plain Files
 
 Use markdown files in a folder. This is the default and most portable implementation.
 
-### 12.2 GitHub
+### 14.2 GitHub
 
 Use a repository for templates, versioning, issue tracking, and collaboration.
 
 Nontechnical users do not need to understand Git. They can point an AI assistant at the repository and ask it to set up the files.
 
-### 12.3 Obsidian Or Wikis
+### 14.3 Obsidian Or Wikis
 
 Use notes, folders, backlinks, and tags. Keep the register separation visible.
 
-### 12.4 AI Project Spaces
+### 14.4 AI Project Spaces
 
 Use project instructions, project files, saved context, or uploaded markdown. Keep stable context separate from current context where the platform allows.
 
-### 12.5 Managed Agent Memory Stores
+### 14.5 Managed Agent Memory Stores
 
 Use memory stores for persistent agent-readable records. If the platform supports separate stores, separate shared reference context from user-specific or project-specific memory.
 
-### 12.6 Databases Or Knowledge Graphs
+### 14.6 Databases Or Knowledge Graphs
 
 Use structured storage only when it helps. The human-readable continuity layer remains the reference interface.
 
-## 13. Minimum Compatibility Standard
+## 15. Minimum Compatibility Standard
 
 A system is Continuity-compatible if it satisfies these minimum conditions:
 
@@ -523,10 +614,11 @@ A system is Continuity-compatible if it satisfies these minimum conditions:
 5. Important claims can point to evidence.
 6. The human can revise, supersede, archive, or delete memory.
 7. A future AI assistant can read the continuity layer and know how strongly to treat each kind of record.
+8. Stale, archived, superseded, inferred, and provisional records are visibly distinguishable when they matter.
 
 Everything beyond that is implementation detail.
 
-## 14. AI Assistant Responsibilities
+## 16. AI Assistant Responsibilities
 
 When an AI assistant is asked to use Continuity, it should:
 
@@ -535,6 +627,8 @@ When an AI assistant is asked to use Continuity, it should:
 - ask only necessary setup questions
 - mark inference as inference
 - distinguish decisions from leanings
+- use the status markup convention when ambiguity matters
+- flag conflicts between registers
 - preserve unresolved questions
 - connect important claims to evidence
 - update only the relevant registers
@@ -546,10 +640,11 @@ The assistant should not:
 - import everything by default
 - treat stored memory as unquestionable
 - treat old context as current without checking
+- resolve contradictions silently
 - hide uncertainty in clean summaries
 - make the system dependent on tools the human did not choose
 
-## 15. Human Responsibilities
+## 17. Human Responsibilities
 
 The human does not need to maintain a perfect system.
 
@@ -560,10 +655,11 @@ The human should:
 - mark decisions when they are real decisions
 - allow old context to be retired
 - ask for updates after meaningful sessions
+- review stale preferences and identity-level memory when surfaced
 
 Continuity is meant to reduce repetition, not create homework.
 
-## 16. Version Notes
+## 18. Version Notes
 
 This is draft v0.1.
 
@@ -574,6 +670,5 @@ The immediate next refinements are:
 - consolidation-pass prompt
 - retrieval-discipline prompt
 - managed-agent memory store example
-- license and repository publication materials
 
 The specification should evolve through use.

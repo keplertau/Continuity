@@ -4,9 +4,24 @@ This file helps future AI sessions understand the current context before answeri
 
 Keep it short enough that an AI can read it at the start of a conversation.
 
+## Status Markers
+
+Use these when ambiguity matters:
+
+- `[CONFIRMED YYYY-MM-DD]`
+- `[PROVISIONAL YYYY-MM-DD]`
+- `[INFERRED YYYY-MM-DD]`
+- `[ACTIVE YYYY-MM-DD]`
+- `[ARCHIVED YYYY-MM-DD]`
+- `[SUPERSEDED YYYY-MM-DD]`
+- `[STALE - REVIEW]`
+- `[UNVERIFIED]`
+
 ## Current Context
 
 What matters right now?
+
+Review this section at the start of a session. Remove or move anything that is no longer current.
 
 - 
 
@@ -14,7 +29,7 @@ What matters right now?
 
 What should future AI sessions know about how to work with me?
 
-Mark anything inferred as `Inferred` until I confirm it.
+Mark anything inferred as `[INFERRED YYYY-MM-DD]` until I confirm it. Add a last-reviewed date when a preference may shape future behavior.
 
 - 
 
@@ -24,9 +39,10 @@ What has already been decided and should not be casually contradicted?
 
 Use this format:
 
-- `YYYY-MM-DD` - Decision: ...
+- `[ACTIVE YYYY-MM-DD]` - Decision: ...
   Rationale: ...
   Constrains: ...
+  Evidence: ...
 
 ## Open Threads
 
@@ -46,9 +62,16 @@ These can be chats, notes, links, documents, files, or transcripts.
 
 Record meaningful changes after important conversations.
 
+Use this section for what changed, what was updated elsewhere, and what evidence was added. Do not duplicate every item from the other sections.
+
 Use this format:
 
 - `YYYY-MM-DD` - What changed:
-  Decisions:
-  Still open:
+  Updated:
+  Evidence:
+  Not captured elsewhere:
   Next:
+
+## Upgrade Trigger
+
+If this file becomes hard to scan, grows beyond roughly 1,500 words, or starts covering several unrelated domains, propose moving to the Standard folder setup.

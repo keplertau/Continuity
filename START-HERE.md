@@ -18,6 +18,8 @@ The AI should help you choose a setup level, create the initial files, and fill 
 
 If the AI needs the deeper rules, ask it to read `SPEC.md`.
 
+Continuity works best when you treat it as a shared context discipline, not a memory dump. The AI can help maintain it, but the human owns the distinctions.
+
 ## Choose A Setup Level
 
 Choose **Lite** if you want the simplest possible version.
@@ -68,6 +70,23 @@ Project adds more explicit structure for briefings, decision records, evidence, 
 
 **Session notes** record what changed after a meaningful conversation.
 
+## Status Markers
+
+Use a small shared notation when ambiguity matters:
+
+```text
+[CONFIRMED 2026-05-08]
+[PROVISIONAL 2026-05-08]
+[INFERRED 2026-05-08]
+[ACTIVE 2026-05-08]
+[ARCHIVED 2026-05-08]
+[SUPERSEDED 2026-05-08]
+[STALE - REVIEW]
+[UNVERIFIED]
+```
+
+You do not need to label everything. Label anything that could shape future AI behavior.
+
 ## What The AI Should Not Do
 
 The AI should not dump every old chat into the current context.
@@ -79,6 +98,8 @@ The AI should not erase unresolved tensions just to make the memory cleaner.
 The AI should not require a database, server, plugin, or command-line workflow unless you explicitly want one.
 
 The AI should not make the setup bigger than you can maintain.
+
+The AI should not silently resolve contradictions between files. If current context and decisions disagree, it should flag the conflict.
 
 ## First Session
 
@@ -99,7 +120,7 @@ At the start of a future chat, ask the AI to read the relevant Continuity files 
 At the end of a meaningful chat, ask the AI to update the continuity layer:
 
 ```text
-Please update Continuity: current context, decisions, open threads, and any evidence pointers that changed.
+Please update Continuity: current context, decisions, open threads, preferences, session notes, and any evidence pointers that changed. Use the status markers from SPEC.md where ambiguity matters. Keep the session log focused on what changed and what was updated elsewhere.
 ```
 
 That is the basic rhythm.

@@ -4,6 +4,8 @@ This file points to sources that support or correct the continuity layer.
 
 A summary is not the same as evidence. When a claim matters, keep the source reachable.
 
+Direct evidence outranks summaries. If a summary conflicts with a source, flag the conflict and check the source.
+
 ## Source Index
 
 Use this format:

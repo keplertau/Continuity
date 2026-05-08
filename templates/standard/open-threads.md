@@ -4,6 +4,8 @@ This file preserves unresolved questions, tensions, hypotheses, risks, and watch
 
 Do not collapse open threads into clean conclusions just because the AI wants tidy memory.
 
+If a thread resolves, move the result into `decisions.md` or `current.md` and mark the thread resolved here.
+
 ## Active Questions
 
 - 

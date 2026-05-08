@@ -27,6 +27,8 @@ Continuity helps you keep a coherent working relationship with an AI assistant a
 
 The goal is simple: help your AI remember the right things in the right way.
 
+Continuity is not only memory the AI uses. It is a shared context discipline the human owns.
+
 ## What Continuity Does
 
 Most AI conversations lose context. The next chat may not know what matters right now, what has already been decided, what is still unresolved, what evidence supports a claim, or what kind of relationship you are trying to build with the assistant.
@@ -86,6 +88,23 @@ Different kinds of context need different treatment. A current concern is not th
 
 Continuity works because the human and AI can tell those differences apart.
 
+## Status Markers
+
+Use compact markers when a memory item could shape future AI behavior:
+
+```text
+[CONFIRMED 2026-05-08]
+[PROVISIONAL 2026-05-08]
+[INFERRED 2026-05-08]
+[ACTIVE 2026-05-08]
+[ARCHIVED 2026-05-08]
+[SUPERSEDED 2026-05-08]
+[STALE - REVIEW]
+[UNVERIFIED]
+```
+
+These markers keep future AI assistants from treating guesses as facts, current concerns as permanent identity, or old decisions as still active.
+
 ## Who This Is For
 
 Continuity is for anyone who uses AI repeatedly and does not want every interaction to start from zero.
@@ -110,6 +129,12 @@ Continuity's visual language is built around a simple idea: context should flow,
 The mark uses a continuous loop, two nodes, and layered context cards. The hero visual shows memory as organized registers connected by a shared thread rather than a pile of undifferentiated recall.
 
 Brand assets live in `assets/`.
+
+## Worked Example
+
+The example in `examples/personal-writer/CONTINUITY.md` shows a Lite setup for a writer working on a book.
+
+It demonstrates the basic rhythm: current context stays short, preferences stay reviewable, decisions carry status markers, open threads remain open, and evidence points back to sources.
 
 ## Design Principles
 
