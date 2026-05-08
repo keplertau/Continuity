@@ -1,6 +1,6 @@
 # Continuity Specification
 
-Draft v0.1  
+Draft v0.1.0
 Date: 2026-05-08
 
 **Tagline:** Stop starting over with your AI.
@@ -41,6 +41,7 @@ It specifies:
 - memory registers
 - authority levels
 - simple start and stop commands
+- versioning and provenance
 - update rules
 - retrieval discipline
 - consolidation rules
@@ -604,41 +605,70 @@ When possible, consolidation should produce reviewable changes rather than silen
 
 If an AI platform offers background memory consolidation, dream-like memory updates, or agent memory refinement, Continuity can use it as a consolidation engine. The output should still be treated as a proposed update to a governed continuity layer, not as unquestioned truth.
 
-## 15. Interoperability
+## 15. Versioning And Provenance
+
+Continuity releases should be traceable.
+
+The project should maintain:
+
+- `VERSION` for the current project version
+- `CHANGELOG.md` for release notes
+- Git tags such as `v0.1.0` for public release points
+- release notes for template, prompt, and specification changes
+
+Generated Continuity setups should include setup provenance in the first file an AI is likely to read:
+
+```text
+Created from Continuity version:
+Created from Continuity commit:
+Created on:
+```
+
+If the source commit is not available, write `unknown`. Do not invent a commit hash.
+
+Provenance is not bureaucracy. It lets a future AI or human know which template and specification baseline shaped the continuity layer.
+
+## 16. Interoperability
 
 Continuity can be implemented in many substrates.
 
 Practical compatibility depends on access. A model in a browser chat with no local file access can discuss Continuity and draft files, but it cannot automatically install or maintain a local continuity folder. A file-access agent can create, read, and update the layer directly.
 
-### 15.1 Plain Files
+### 16.1 Plain Files
 
 Use markdown files in a folder. This is the default and most portable implementation.
 
-### 15.2 GitHub
+### 16.2 GitHub
 
 Use a repository for templates, versioning, issue tracking, and collaboration.
 
 Nontechnical users do not need to understand Git. They can point an AI assistant at the repository and ask it to set up the files.
 
-### 15.3 Obsidian Or Wikis
+### 16.3 Obsidian Or Wikis
 
 Use notes, folders, backlinks, and tags. Keep the register separation visible.
 
-### 15.4 AI Project Spaces
+### 16.4 AI Project Spaces
 
 Use project instructions, project files, saved context, or uploaded markdown. Keep stable context separate from current context where the platform allows.
 
 If the project space can store files but not let the AI create folders or save edits, treat it as a partial implementation and use manual updates.
 
-### 15.5 Managed Agent Memory Stores
+### 16.5 Mobile Or Browser Chat
+
+Use Lite Manual Mode when the AI cannot access local files. The AI can draft `CONTINUITY.md` content or update blocks in chat, and the human can copy them into Notes, Files, Drive, Obsidian, Notion, GitHub, or another accessible place.
+
+Mobile implementations are still valid Continuity implementations when the register distinctions, status markers, and update discipline remain visible.
+
+### 16.6 Managed Agent Memory Stores
 
 Use memory stores for persistent agent-readable records. If the platform supports separate stores, separate shared reference context from user-specific or project-specific memory.
 
-### 15.6 Databases Or Knowledge Graphs
+### 16.7 Databases Or Knowledge Graphs
 
 Use structured storage only when it helps. The human-readable continuity layer remains the reference interface.
 
-## 16. Minimum Compatibility Standard
+## 17. Minimum Compatibility Standard
 
 A system is Continuity-compatible if it satisfies these minimum conditions:
 
@@ -651,10 +681,11 @@ A system is Continuity-compatible if it satisfies these minimum conditions:
 7. A future AI assistant can read the continuity layer and know how strongly to treat each kind of record.
 8. Stale, archived, superseded, inferred, and provisional records are visibly distinguishable when they matter.
 9. The human can use `Start continuity` and `Stop continuity` instead of long prompts once setup is complete.
+10. Generated setups record the Continuity version and source commit when available.
 
 Everything beyond that is implementation detail.
 
-## 17. AI Assistant Responsibilities
+## 18. AI Assistant Responsibilities
 
 When an AI assistant is asked to use Continuity, it should:
 
@@ -664,6 +695,7 @@ When an AI assistant is asked to use Continuity, it should:
 - mark inference as inference
 - distinguish decisions from leanings
 - use the status markup convention when ambiguity matters
+- record setup provenance when creating a new continuity layer
 - flag conflicts between registers
 - preserve unresolved questions
 - connect important claims to evidence
@@ -678,9 +710,10 @@ The assistant should not:
 - treat old context as current without checking
 - resolve contradictions silently
 - hide uncertainty in clean summaries
+- invent a source version or commit
 - make the system dependent on tools the human did not choose
 
-## 18. Human Responsibilities
+## 19. Human Responsibilities
 
 The human does not need to maintain a perfect system.
 
@@ -695,9 +728,9 @@ The human should:
 
 Continuity is meant to reduce repetition, not create homework.
 
-## 19. Version Notes
+## 20. Version Notes
 
-This is draft v0.1.
+This is draft v0.1.0.
 
 The immediate next refinements are:
 

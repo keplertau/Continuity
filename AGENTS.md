@@ -159,8 +159,10 @@ Dogfood testing on 2026-05-08 clarified the adoption surface:
 
 - Cold-start Codex with file access worked well.
 - Chat-only or limited-file environments need a manual fallback because they cannot reliably create folders or update files.
+- iPhone, Android, tablet, and browser-chat users should be guided into Lite Manual Mode unless their tool can actually save files.
 - User-facing session commands are now `Start continuity` and `Stop continuity`; the detailed behavior lives in the docs and templates rather than in long user prompts.
 - Setup should ask only what is needed to create the first useful layer. Do not ask gating questions about willingness to maintain distinctions.
+- Releases use `VERSION`, `CHANGELOG.md`, and Git tags such as `v0.1.0`; generated setups record the Continuity version and source commit when available.
 
 Next work:
 

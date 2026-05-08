@@ -4,6 +4,12 @@ This file helps future AI sessions understand the current context before answeri
 
 Keep it short enough that an AI can read it at the start of a conversation.
 
+## Setup Provenance
+
+Created from Continuity version: 0.1.0
+Created from Continuity commit: [fill in commit hash or unknown]
+Created on: [YYYY-MM-DD]
+
 ## Commands
 
 `Start continuity` means: read this file, use current context and active decisions, and flag stale, inferred, provisional, contradictory, archived, or superseded items before relying on them.

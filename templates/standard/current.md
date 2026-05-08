@@ -4,6 +4,12 @@ This file is the near-surface layer. It should tell a future AI session what mat
 
 Keep it short. Remove or revise items when they stop being current.
 
+## Setup Provenance
+
+Created from Continuity version: 0.1.0
+Created from Continuity commit: [fill in commit hash or unknown]
+Created on: [YYYY-MM-DD]
+
 ## Commands
 
 `Start continuity` means: read the relevant Continuity files, use current context and active decisions, and flag stale, inferred, provisional, contradictory, archived, or superseded items before relying on them.

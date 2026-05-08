@@ -43,3 +43,5 @@ When an AI assistant sees this command, it should:
 These commands work best when the AI assistant has access to the Continuity files.
 
 If the AI cannot read or write local files, it should say so and offer a manual fallback: draft the files or updates in chat for the human to copy into place.
+
+On a phone, tablet, or browser chat, `Start continuity` may require the human to paste or upload the Continuity file first. `Stop continuity` may mean the AI drafts an update block rather than editing the file directly.

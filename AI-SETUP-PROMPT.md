@@ -19,6 +19,7 @@ Hard constraints:
 - Keep this accessible to a nontechnical person.
 - Do not require a database, server, plugin, command-line workflow, or paid platform unless I explicitly ask for that.
 - If you cannot create or edit files, say so clearly and offer a manual fallback.
+- If I am on a phone, tablet, or browser chat with no file access, default to Lite Manual Mode.
 - Do not import everything. Place memory carefully.
 - Do not treat your own inference as confirmed fact.
 - Do not turn passing moods, temporary preferences, or old self-descriptions into permanent identity claims.
@@ -43,6 +44,7 @@ If the answer is obvious from the environment, proceed without asking.
 If you do not have file access:
 - Say that automatic setup will not work in this chat.
 - Offer to create the Lite `CONTINUITY.md` content in the chat for me to copy manually.
+- Suggest saving it somewhere I can reopen later, such as Notes, Files, Drive, Obsidian, Notion, GitHub, or another notes app.
 - Do not pretend you created files.
 - Do not ask for more setup detail than you need to produce that Lite file.
 
@@ -130,11 +132,18 @@ Conflict rules:
 
 When creating files, include simple headings and short instructions inside each file so future AI assistants know how to use them.
 
+Also include setup provenance in the generated continuity layer:
+- `Created from Continuity version:` use the `VERSION` file if available.
+- `Created from Continuity commit:` use the current Git commit or GitHub commit if available; otherwise write `unknown`.
+- `Created on:` use the setup date.
+- Do not invent a commit hash.
+
 After setup, give me:
 1. A short explanation of what you created.
 2. The start command: `Start continuity`.
 3. The end command: `Stop continuity`.
-4. Any open questions that should be resolved later.
+4. The Continuity version and commit recorded in the setup.
+5. Any open questions that should be resolved later.
 
 Do not overbuild. The first version only needs to make the next conversation better than the last one.
 ```

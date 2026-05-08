@@ -18,6 +18,7 @@
   <a href="START-HERE.md">Start Here</a> ·
   <a href="AI-SETUP-PROMPT.md">AI Setup Prompt</a> ·
   <a href="COMMANDS.md">Commands</a> ·
+  <a href="CHANGELOG.md">Changelog</a> ·
   <a href="SPEC.md">Spec</a>
 </p>
 
@@ -92,8 +93,45 @@ The key question is not which AI model you use. The key question is whether that
 | Desktop or project workspaces with folder access, such as Co-Work-style tools | Best | The AI can maintain Continuity as part of the workspace. |
 | AI tools with uploaded project files but limited file operations | Partial | The AI may help draft or update files, but setup can be clunky if it cannot create folders or save changes. |
 | Browser chat with no local file access | Manual | The AI cannot install Continuity by itself. It can draft a Lite file for you to copy into place. |
+| iPhone, Android, or tablet chat apps | Manual or partial | Start with Lite. If the app cannot save files, ask it to draft the file and copy it into Notes, Files, Drive, Obsidian, Notion, GitHub, or another place you can reopen. |
 
 If your AI cannot create folders or edit files, that is an environment limitation, not a Continuity failure. Use the Lite template manually, upload the files into a project space, or switch to a tool that has file access.
+
+### Phones And Tablets
+
+If you are on an iPhone, Android phone, or tablet, use the simplest path first.
+
+Ask the AI to create a Lite `CONTINUITY.md` in the chat. Save it somewhere you can find again: Apple Notes, Files, Google Drive, Obsidian, Notion, GitHub, or another notes app. In future sessions, paste or upload that file if the AI cannot access it directly.
+
+The command rhythm still works:
+
+```text
+Start continuity
+```
+
+means "read the Continuity file I provided."
+
+```text
+Stop continuity
+```
+
+means "draft the updates I should apply."
+
+## Versioning
+
+The current project version lives in [`VERSION`](VERSION).
+
+Release notes live in [`CHANGELOG.md`](CHANGELOG.md). Public release points should use Git tags such as `v0.1.0`.
+
+Generated Continuity setups should record their source:
+
+```text
+Created from Continuity version:
+Created from Continuity commit:
+Created on:
+```
+
+If the AI cannot determine the commit, it should write `unknown` rather than inventing one.
 
 ## Setup Levels
 

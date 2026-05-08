@@ -28,6 +28,8 @@ A browser chat window usually cannot reach your Desktop or project folders by it
 
 Some desktop or app-based AI tools are also partial if they can read uploaded files but cannot create folders or save changes. That is a tool-access limitation, not a problem with Continuity.
 
+If you are on an iPhone, Android phone, or tablet, start with Lite and Manual Mode. Ask the AI to draft a `CONTINUITY.md` file in chat, then save it somewhere you can reopen: Notes, Files, Drive, Obsidian, Notion, GitHub, or another notes app.
+
 If the AI says it cannot access folders, use Manual Mode:
 
 ```text
@@ -145,3 +147,5 @@ That is the basic rhythm.
 Start, work, stop.
 
 The detailed behavior behind those two commands lives in [`COMMANDS.md`](COMMANDS.md).
+
+If you are using a phone or a browser chat, `Start continuity` may mean pasting or uploading your `CONTINUITY.md` file first. `Stop continuity` may mean asking the AI to draft the changes for you to apply manually.

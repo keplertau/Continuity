@@ -4,6 +4,12 @@ Example Lite setup for a writer working on a book.
 
 This is not a real person. It shows how a single-file Continuity layer can stay useful without becoming heavy.
 
+## Setup Provenance
+
+Created from Continuity version: 0.1.0
+Created from Continuity commit: example-only
+Created on: 2026-05-08
+
 ## Status Markers
 
 - `[CONFIRMED YYYY-MM-DD]`
