@@ -1,6 +1,6 @@
 # Continuity Specification
 
-Draft v0.1.0
+Draft v0.2.0
 Date: 2026-05-08
 
 **Tagline:** Stop starting over with your AI.
@@ -240,6 +240,7 @@ continuity/
   evidence/
   archive/
   processes/
+  fragments/
   open-threads.md
   roadmap.md
 ```
@@ -255,7 +256,42 @@ Project is best for:
 
 Project should not be the default for ordinary users.
 
+#### How Project Mode Operates
+
+In Project mode, the registers stop being a single-file mosaic and become a small system that produces and consumes derived layers. The following operating logic is recommended.
+
+**Briefings are derived, not authored.** `briefings/` holds compact orientation files that future sessions read first — typically a current-state briefing, a decisions briefing, a recent-sessions briefing, and (when the project has standing cadences) a process briefing. These are regenerated periodically from the underlying entities; they are not the source of truth. If a briefing and a decision entity disagree, treat it as drift: follow the decision entity and re-run the consolidation pass. The roadmap in `roadmap.md` is an exception — it is authored manually during sessions, not derived.
+
+**Sessions are records; transcripts are evidence.** `sessions/` holds one short summary per meaningful session: what happened, what changed, decisions made, pending items. Each session entity should point to the underlying transcript when one exists. Transcripts are stored under `evidence/` (or a transcripts subfolder) and follow the fidelity discipline in §7.5. The session entity is the durable narrative; the transcript is the verbatim record. When exact wording or sequence matters, future sessions should read the transcript rather than the summary.
+
+**Decisions accumulate as individual entities.** `decisions/` holds one file per significant decision rather than a single rolling document. Each entity carries rationale, what the decision constrains, supersession notes when relevant, and a status field (`active`, `confirmed`, `archived`, `superseded`, or `provisional`). The decisions briefing in `briefings/` is regenerated from entities with `active` or `confirmed` status — provisional decisions stay out of the briefing until promoted (see §14.1).
+
+**Fragments are optional and low-authority.** `fragments/` holds orphan ideas, paragraphs, or insights worth preserving but not yet placed into another register. See §7.10. Project users without much generative material can omit the folder entirely.
+
+**Open threads stay flat or split per thread.** A single `open-threads.md` works until threads multiply or develop substantial discussion. When that happens, a Project may split open threads into individual files under an `open-threads/` folder. Either form is valid.
+
+**Auto-graduation and provisional status.** When a consolidation pass — manual, scheduled, or AI-driven — creates new concept or decision entities from recent transcripts, those entities should be written with `status: provisional` and stay out of the decisions briefing. They graduate to `confirmed` when a later session uses them without objection. This is the safety rail that lets the consolidation pass run without supervision: it cannot reshape operating stances by inference alone. See §14.1 for the recommended Sleep-Cycle Distillation recipe.
+
+**Indexing.** `index.md` carries the loading priorities (hot, warm, cold), the file map, and lightweight maintenance metadata (last reviewed, last edited, meaningful sessions since cleanup). Future AI sessions should read the index before reading individual registers.
+
+**Roadmap is forward-looking only.** `roadmap.md` carries committed work and current priorities. Completed items should be removed; their record lives in session entities and decision entities. This keeps the roadmap small enough to stay useful at session start.
+
 ## 7. Register Model
+
+The registers below correspond to distinct cognitive functions a continuity layer needs to support, not to arbitrary file divisions. The split exists because future AI sessions need to treat each kind of memory differently — what to read first, what carries highest evidential weight, what merely orients, what is still open, and what should not steer behavior at all.
+
+The cognitive functions and their operational counterparts:
+
+- **Working awareness** — what matters now. Maps to current context (§7.1) and briefings (§7.9).
+- **Normative memory** — stable preferences, identity context, durable working agreements. Maps to preferences (§7.2).
+- **Commitment memory** — what has been decided and should not be casually re-litigated. Maps to decisions (§7.3).
+- **Open-tension memory** — what remains unresolved. Maps to open threads (§7.4).
+- **Evidence memory** — the source record that supports or corrects summaries. Maps to evidence (§7.5) and archive (§7.7).
+- **Episodic memory** — what happened in a session and what changed because of it. Maps to session log (§7.6).
+- **Process memory** — recurring cadences, triggers, and maintenance rules. Maps to process context (§7.8).
+- **Generative memory** — orphan ideas worth preserving without a permanent home yet. Maps to fragments (§7.10).
+
+A continuity layer that flattens these into one undifferentiated bucket loses the ability to tell future sessions which records steer behavior, which carry highest evidential weight, which merely orient, and which are still open. Implementations may merge the operational categories below — a Lite setup typically keeps all of this in a single file — but the cognitive distinctions should remain visible inside whatever structure the implementation uses.
 
 ### 7.1 Current Context
 
@@ -372,6 +408,14 @@ Project should not be the default for ordinary users.
 
 **Failure mode:** Summaries become treated as evidence, or evidence pointers disappear.
 
+**Fidelity discipline.** Evidence records should declare their fidelity — especially transcripts, chat exports, and any record produced by an extraction step where size limits, host-path access, or tool constraints may produce a partial or compressed result. Recommended header field for any extracted record:
+
+```text
+Extraction fidelity: full verbatim | partial | compressed
+```
+
+If the record is partial or compressed, a short note immediately under the header should name what is missing or summarized and why. The same note should appear in the consolidation log that produced the file. A summary file may live alongside an evidence record and point to it, but a summary must not be substituted for the evidence record or relabeled as verbatim. When a claim depends on exact wording, sequence, or attribution, future AI sessions should read the evidence record itself and check its fidelity header before treating its content as load-bearing.
+
 ### 7.6 Session Log
 
 **Job:** Record meaningful changes after important conversations without duplicating every register.
@@ -454,6 +498,30 @@ Project should not be the default for ordinary users.
 **Update cadence:** When project shape changes or after consolidation.
 
 **Failure mode:** Briefings drift from the underlying records.
+
+### 7.10 Fragments
+
+**Job:** Preserve orphan ideas, insights, or paragraphs worth keeping that do not yet have a permanent home in another register.
+
+**Typical file:** `fragments.md` or records under `fragments/`. Optional in Lite and Standard; more useful in Project mode.
+
+**Includes:**
+
+- meaningful insights surfaced in a conversation
+- paragraphs cut from a draft that may be reused
+- candidate concepts not yet developed enough for a concept entity or decision
+- generative material from thinking sessions
+- ideas waiting for their right context
+
+**Authority:** Low. Fragments are candidates, not commitments. They should not steer behavior unless they graduate into another register.
+
+**Update cadence:** Add when material is worth preserving but does not fit cleanly into current context, decisions, open threads, or evidence.
+
+**Decay rule:** Fragments are allowed to age. A fragment that is never reused is a normal outcome, not drift. Periodic merge/prune passes may consolidate or prune the register.
+
+**Failure mode:** Fragments become a dumping ground large enough that nothing can be found, or fragments are mistaken for decisions and settled positions because they read as polished prose.
+
+**How fragments differ from open threads.** Open threads are unresolved questions, tensions, hypotheses, or risks — things that may need to be resolved. Fragments are orphan content worth preserving without a question attached. An open thread that decays unread is drift to detect; a fragment that decays unused is fine.
 
 ## 8. Command Interface
 
@@ -694,7 +762,47 @@ When possible, consolidation should produce reviewable changes rather than silen
 
 If an AI platform offers background memory consolidation, dream-like memory updates, or agent memory refinement, Continuity can use it as a consolidation engine. The output should still be treated as a proposed update to a governed continuity layer, not as unquestioned truth.
 
-## 15. Versioning And Provenance
+### 14.1 Sleep-Cycle Distillation (Project-Mode Recipe)
+
+For long-running Project-mode workspaces, a recurring distillation pass tends to outperform real-time curation. The pattern below has been validated in live use and is recommended for projects with regular session activity. The recipe is portable across substrates: it can run on a schedule (overnight, weekly), at session end as a manual step, or through an AI memory process. The pattern is what matters; how it executes is an implementation choice.
+
+Phases:
+
+1. **Extract.** Pull new session transcripts (or chat exports, or notes) into the evidence layer. Label extraction fidelity per §7.5. Deduplicate against a state record of previously extracted sessions so the pass is idempotent.
+
+2. **Distill.** Regenerate the derived briefings — typically the decisions briefing and a recent-sessions briefing — from the underlying entities and recently extracted records. Briefings must remain compact: prefer source pointers to rationale; prefer signal to completeness. Manually authored briefings (project structure, roadmap) are not regenerated by the pass.
+
+3. **Graduate.** Write new entity pages directly for candidates surfaced in recent material:
+   - **session entities** for any session that has a transcript but no summary entity
+   - **concept entities** for named ideas used multiple times across recent sessions
+   - **decision entities** for operational stances established in transcript but not yet recorded
+   New concept and decision entities are written with `status: provisional`. Session entities carry no status flag.
+
+4. **Promote.** Check existing `provisional` entities against newer transcripts. If a provisional entity's slug, title, or distinctive phrase appears in a later session without objection, promote it to `confirmed`. If the logic is ambiguous, leave it provisional.
+
+5. **Log.** Append a record of what the pass did to a consolidation log: transcripts extracted, briefings regenerated, entities auto-graduated, entities promoted, fidelity issues. The log is the audit trail for an otherwise-silent process.
+
+**Safety rail.** Provisional decisions must not flow into the decisions briefing until promoted. This is the rule that lets the pass run without supervision: it cannot reshape operating stances by inference alone.
+
+**No forced output.** If a phase has nothing to do — no new transcripts, no graduation candidates, no promotions — write nothing for that phase. The pass should be quiet when nothing has changed.
+
+The sleep-cycle pattern complements but does not replace the broader rules above. A project may also run manual end-of-session passes, periodic merge/prune passes (§11.8), or one-off cleanup sessions.
+
+## 15. Plug-And-Play Evolution Points
+
+Continuity is designed to be upgraded, not replaced. Layer boundaries are deliberate so any single layer can be swapped without rebuilding the others. The following are explicit seams where implementations can evolve as AI tools improve:
+
+- **Retrieval layer.** A baseline implementation may rely on filename conventions, plain-text search, or grep over markdown. A later implementation may add a SQLite index, a vector store, embeddings-based semantic search, or a native AI retrieval primitive. The substrate — the markdown layer the human inspects and edits — does not change; only the query tool changes.
+
+- **Distillation engine.** Consolidation may begin as a manual end-of-session step, run on a scheduled task, or rely on a custom AI skill. It may later move to a more capable model, an always-on agent, or a different pipeline entirely. The briefing files and entity pages are the interface; who or what generates them is replaceable.
+
+- **Graph layer.** Relationships between entities may begin implicit, expressed through filenames, wikilinks, and tags. A later implementation may add an explicit graph index — derived from the markdown layer, not authoritative over it — for queries that text search cannot answer well, such as temporal validity, supersession chains, or neighborhood retrieval. Markdown stays canonical; the graph is derived and disposable.
+
+- **Storage and synchronization.** A baseline implementation may live in a local folder with no remote. Later, the same folder can be backed by Git, synchronized through cloud storage, or replicated across devices. Because the canonical form is plain text in a folder, storage choice is portable — the layer moves.
+
+These seams are not promises about specific tools. They are commitments to keep the architecture replaceable.
+
+## 16. Versioning And Provenance
 
 Continuity releases should be traceable.
 
@@ -717,47 +825,47 @@ If the source commit is not available, write `unknown`. Do not invent a commit h
 
 Provenance is not bureaucracy. It lets a future AI or human know which template and specification baseline shaped the continuity layer.
 
-## 16. Interoperability
+## 17. Interoperability
 
 Continuity can be implemented in many substrates.
 
 Practical compatibility depends on access. A model in a browser chat with no local file access can discuss Continuity and draft files, but it cannot automatically install or maintain a local continuity folder. A file-access agent can create, read, and update the layer directly.
 
-### 16.1 Plain Files
+### 17.1 Plain Files
 
 Use markdown files in a folder. This is the default and most portable implementation.
 
-### 16.2 GitHub
+### 17.2 GitHub
 
 Use a repository for templates, versioning, issue tracking, and collaboration.
 
 Nontechnical users do not need to understand Git. They can point an AI assistant at the repository and ask it to set up the files.
 
-### 16.3 Obsidian Or Wikis
+### 17.3 Obsidian Or Wikis
 
 Use notes, folders, backlinks, and tags. Keep the register separation visible.
 
-### 16.4 AI Project Spaces
+### 17.4 AI Project Spaces
 
 Use project instructions, project files, saved context, or uploaded markdown. Keep stable context separate from current context where the platform allows.
 
 If the project space can store files but not let the AI create folders or save edits, treat it as a partial implementation and use manual updates.
 
-### 16.5 Mobile Or Browser Chat
+### 17.5 Mobile Or Browser Chat
 
 Use Lite Manual Mode when the AI cannot access local files. The AI can draft `CONTINUITY.md` content or update blocks in chat, and the human can copy them into Notes, Files, Drive, Obsidian, Notion, GitHub, or another accessible place.
 
 Mobile implementations are still valid Continuity implementations when the register distinctions, status markers, and update discipline remain visible.
 
-### 16.6 Managed Agent Memory Stores
+### 17.6 Managed Agent Memory Stores
 
 Use memory stores for persistent agent-readable records. If the platform supports separate stores, separate shared reference context from user-specific or project-specific memory.
 
-### 16.7 Databases Or Knowledge Graphs
+### 17.7 Databases Or Knowledge Graphs
 
 Use structured storage only when it helps. The human-readable continuity layer remains the reference interface.
 
-## 17. Minimum Compatibility Standard
+## 18. Minimum Compatibility Standard
 
 A system is Continuity-compatible if it satisfies these minimum conditions:
 
@@ -775,7 +883,7 @@ A system is Continuity-compatible if it satisfies these minimum conditions:
 
 Everything beyond that is implementation detail.
 
-## 18. AI Assistant Responsibilities
+## 19. AI Assistant Responsibilities
 
 When an AI assistant is asked to use Continuity, it should:
 
@@ -806,7 +914,7 @@ The assistant should not:
 - hide Continuity inside an obscure folder unless the human explicitly chose it
 - make the system dependent on tools the human did not choose
 
-## 19. Human Responsibilities
+## 20. Human Responsibilities
 
 The human does not need to maintain a perfect system.
 
@@ -821,9 +929,11 @@ The human should:
 
 Continuity is meant to reduce repetition, not create homework.
 
-## 20. Version Notes
+## 21. Version Notes
 
-This is draft v0.1.0.
+This is draft v0.2.0.
+
+v0.2.0 incorporates lessons from a live working-memory implementation that has run in continuous use for several weeks: cognitive-register framing for §7, fidelity discipline for evidence records (§7.5), a Fragments register (§7.10), operating logic for Project mode (§6.3), the Sleep-Cycle Distillation recipe as a named Project-mode pattern (§14.1), and an explicit Plug-and-Play Evolution Points section (§15) that names the seams along which implementations can evolve.
 
 The immediate next refinements are:
 

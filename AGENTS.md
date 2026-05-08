@@ -14,7 +14,7 @@ Continuity is a pattern for better memory placement, better relationship continu
 
 Many AI memory systems focus on recall: store, retrieve, and make prior material available. Continuity adds a second question: what should a human-AI relationship keep near the surface, what should settle into structured memory, what should remain archived as evidence, and what confidence should future AI agents assign to each layer?
 
-The project grows out of the Archive system built for Carsten's work across the Meridian Codex and related projects. The Archive proved that a layered memory architecture can make AI collaboration feel less like repeated prompting and more like a continuing relationship. Continuity generalizes that pattern beyond one project.
+The project grows out of the live working memory layer built for Carsten's work across the Meridian Codex and related projects (originally named the Archive; renamed to Continuity locally on 2026-05-08, which closed the naming asymmetry between the live instance and this open-source pattern). That live layer proved that a layered memory architecture can make AI collaboration feel less like repeated prompting and more like a continuing relationship. The public Continuity project generalizes that pattern beyond one partnership.
 
 ## The Core Claim
 
@@ -60,7 +60,7 @@ It does not require replacing an AI model's native memory. Native memory may imp
 
 ## Current Working Model
 
-The current live implementation is the Archive in `/Users/carsten/Projects/Archive`. It uses layered memory registers:
+The current live implementation is the Continuity instance at `/Users/carsten/Projects/Continuity` (renamed from Archive on 2026-05-08). It uses layered memory registers:
 
 - **Working awareness:** briefings, current priorities, live context
 - **Commitment memory:** confirmed decisions and operating constraints
@@ -178,11 +178,11 @@ For Continuity repo changes:
 - Use Git tags such as `v0.1.0` for public release points, not every small edit.
 - Do not treat Continuity repo changes as Meridian Codex or Meridian AI Standard changelog entries unless those public surfaces also changed.
 
-For the wider Projects Archive:
+For the wider Projects Continuity instance (the live working memory layer, formerly Archive):
 
-- Working sessions about Continuity still get captured by the shared Archive end-of-session protocol when Carsten closes a session in the Projects workspace.
-- Archive session entities should link to Continuity commits, tags, decisions, and pending article/distribution work.
-- Architectural rules established for Continuity may deserve decision entities when they constrain future sessions.
+- Working sessions about the public Continuity project still get captured by the shared end-of-session protocol when Carsten closes a session in the Projects workspace.
+- Live-instance session entities should link to public Continuity commits, tags, decisions, and pending article/distribution work.
+- Architectural rules established for the public Continuity project may deserve decision entities when they constrain future sessions.
 - A CarstenGeiser article about Continuity should be treated as distribution and interpretation, not as the canonical source of the Continuity protocol. The canonical source is the GitHub repo.
 
 Next work:

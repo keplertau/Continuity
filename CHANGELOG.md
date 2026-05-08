@@ -4,9 +4,30 @@ All notable changes to Continuity are documented here.
 
 Continuity uses Git tags such as `v0.1.0` for public release points. Template, prompt, and specification changes should be noted here so generated setups can be traced back to the version they came from.
 
-## [Unreleased]
+## [0.2.0] - 2026-05-08
+
+Cross-pollination release. Incorporates lessons from a live working-memory implementation that has run in continuous use for several weeks. Six SPEC additions, plus the unreleased changes that had accumulated since v0.1.0.
+
+### Added
+
+- **Cognitive register framing in §7.** Introductory paragraph mapping the operational registers (current context, preferences, decisions, open threads, evidence, session log, archive, process context, briefings, fragments) to the cognitive functions they support: working awareness, normative memory, commitment memory, open-tension memory, evidence memory, episodic memory, process memory, and generative memory. Explains why the register separation isn't arbitrary.
+- **Fragments register (§7.10).** A new low-authority register for orphan ideas, paragraphs, or insights worth preserving but not yet placed elsewhere. Distinct from open threads: open threads are unresolved questions; fragments are orphan content. Optional in Lite and Standard, more useful in Project mode.
+- **Project-mode operating logic (§6.3).** Replaces the bare folder layout with operating logic: how briefings get derived from entities, how session entities relate to transcripts, how decisions accumulate as individual files with status, when to auto-graduate, when to promote provisional → confirmed, what indexing role `index.md` plays, how the roadmap stays forward-looking.
+- **Sleep-Cycle Distillation recipe (§14.1).** Promotes the consolidation pattern (extract → distill → graduate → promote → log) into a named Project-mode recipe, validated in live use. The recipe is portable across substrates: it can run on a schedule, at session end manually, or through an AI memory process. Includes the safety rail that provisional decisions cannot flow into the decisions briefing until promoted.
+- **Plug-and-Play Evolution Points (§15).** New section naming the seams where implementations can evolve as AI tools improve: retrieval layer, distillation engine, graph layer, storage and synchronization. Reads the architecture as designed-for-upgrade rather than as permanent.
 
 ### Changed
+
+- **§7.5 Evidence tightened with fidelity discipline.** Adds an explicit extraction-fidelity header convention (`full verbatim | partial | compressed`), partial-extraction labeling rules, and the rule that summaries cannot be substituted for evidence records or relabeled as verbatim.
+- **§7 introduction.** Now opens with the cognitive-function framing before listing the operational registers.
+- **§6.3 Project mode.** Folder layout adds `fragments/`. New operating-logic section follows the layout.
+- **§14 Consolidation Rules.** Broad rules retained; new §14.1 names the Sleep-Cycle Distillation recipe.
+
+### Renumbered
+
+- Sections after §14 shifted by one to accommodate the new §15 (Plug-And-Play Evolution Points): Versioning is now §16, Interoperability §17, Minimum Compatibility §18, AI Assistant Responsibilities §19, Human Responsibilities §20, Version Notes §21.
+
+### Also rolled in from the post-v0.1.0 unreleased work
 
 - Replaced the original illustrative raster logo with a cleaner vector mark and regenerated the 512 x 512 PNG export.
 - Added lightweight maintenance conventions for review markers, conflict pointers, graduated context loading, session handoff notes, merge/prune cleanup, multi-agent edit metadata, and human-findable install locations.
