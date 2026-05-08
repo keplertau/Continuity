@@ -86,6 +86,8 @@ Continuity depends on separating memory by function.
 
 **Evidence context** is the record that supports or corrects the summaries: transcripts, notes, documents, source files, citations, and extracted records.
 
+**Generative context** is orphan ideas, paragraphs, or insights worth preserving without a permanent home yet — fragments. Optional in light setups; more useful in long-running project workspaces. Distinct from open threads: open threads are unresolved questions, fragments are orphan content.
+
 The system works when future AI sessions can tell the difference between these registers. It fails when everything becomes generic "memory."
 
 ## Design Principles
@@ -112,17 +114,17 @@ Possible repository shape:
 continuity/
   README.md
   AGENTS.md
+  SPEC.md
   templates/
-    briefings/
-    entities/
-    personal-context/
-    transcripts/
+    lite/
+    standard/
+    project/
   prompts/
+    consolidation-pass.md
     retrieval-discipline.md
     end-of-session.md
-    consolidation-pass.md
   examples/
-    personal-use/
+    personal-writer/
     project-use/
 ```
 
@@ -187,12 +189,11 @@ For the wider Projects Continuity instance (the live working memory layer, forme
 
 Next work:
 
-1. Decide whether "Continuity" remains the final public name or only the working title.
-2. Add project-mode templates without making the default setup too heavy.
-3. Add examples for project use, Obsidian/wiki use, and managed-agent memory stores.
-4. Decide whether the first GitHub repo should include a minimal release marker before publication.
-5. Continue compatibility testing across file-access agents, project-file assistants, and browser-only chat tools.
-6. Draft a CarstenGeiser article that introduces Continuity publicly and links to the GitHub repo without making the article the source of truth.
+1. Add a worked example for project use to complement the `templates/project/` structure shipped in v0.2.1.
+2. Add examples for Obsidian/wiki use and managed-agent memory stores.
+3. Continue compatibility testing across file-access agents, project-file assistants, and browser-only chat tools.
+4. Draft a CarstenGeiser article that introduces Continuity publicly and links to the GitHub repo without making the article the source of truth.
+5. Optional `prompts/retrieval-discipline.md` and `prompts/end-of-session.md` artifacts to complement `prompts/consolidation-pass.md`.
 
 ## Current Positioning
 

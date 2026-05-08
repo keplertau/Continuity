@@ -4,7 +4,7 @@ This file tells future AI sessions what to read first.
 
 ## Setup Provenance
 
-Created from Continuity version: 0.2.0
+Created from Continuity version: 0.2.1
 Created from Continuity commit: [fill in commit hash or unknown]
 Created on: [YYYY-MM-DD]
 

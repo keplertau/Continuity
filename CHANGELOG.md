@@ -4,6 +4,24 @@ All notable changes to Continuity are documented here.
 
 Continuity uses Git tags such as `v0.1.0` for public release points. Template, prompt, and specification changes should be noted here so generated setups can be traced back to the version they came from.
 
+## [0.2.1] - 2026-05-08
+
+Project-mode template, consolidation-pass prompt, and small README/AGENTS edits to align the public surfaces with v0.2.0 SPEC additions. No SPEC changes.
+
+### Added
+
+- **`templates/project/`.** Full Project-mode starter mirroring SPEC §6.3's folder layout: `index.md`, `current.md`, `roadmap.md`, `open-threads.md`, plus `briefings/`, `decisions/`, `sessions/`, `evidence/`, `archive/`, `processes/`, and `fragments/` each with a substantive `README.md` that encodes the operating logic from §6.3 and §14.1. The template reads as an executable form of the spec — populating it gives an AI assistant or human enough scaffolding to run a Project-mode workspace without parsing the prose first.
+- **`prompts/consolidation-pass.md`.** New pasteable prompt implementing the Sleep-Cycle Distillation recipe from SPEC §14.1. Substrate-neutral and schedule-agnostic: documents the five phases (extract, distill, graduate, promote, log) as a recipe, with adaptation notes for non-markdown substrates, lighter setup levels, and varying cadences. Conservative on automation — frames manual end-of-session use as the baseline; scheduled or agent-driven execution is named as a richer implementation.
+
+### Changed
+
+- **README.md.** Setup Levels Project description expanded to name the full v0.2.0 §6.3 register set (briefings, decisions, sessions, evidence, processes, fragments, open threads, roadmap), and points readers to SPEC §6.3 and §14.1 for the operating logic. Earlier wording elided fragments and roadmap.
+- **AGENTS.md.** Added generative context (fragments) to the "Registers, Not One Memory Bucket" section so the cognitive-register list matches SPEC §7. Updated the "Possible Product Shape" sketch to reflect what's actually built (`templates/lite/`, `templates/standard/`, `templates/project/`, `prompts/consolidation-pass.md`). Pruned resolved items from "Next work" — the project name is locked, the v0.1.0 release-marker question is settled by actual releases — and added the worked-example follow-up, additional-substrate examples, and optional retrieval-discipline / end-of-session prompts as forward-looking items.
+
+### Provenance Bumps
+
+- `templates/lite/CONTINUITY.md`, `templates/standard/index.md`, `templates/standard/current.md`, and `examples/personal-writer/CONTINUITY.md` provenance lines bumped from `0.2.0` to `0.2.1`. Generated setups created under v0.2.1 should record `0.2.1` rather than `0.2.0`.
+
 ## [0.2.0] - 2026-05-08
 
 Cross-pollination release. Incorporates lessons from a live working-memory implementation that has run in continuous use for several weeks. Six SPEC additions, plus the unreleased changes that had accumulated since v0.1.0.

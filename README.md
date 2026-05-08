@@ -156,7 +156,7 @@ Continuity can be as small or as structured as you need.
 |---|---|---|
 | **Lite** | Personal use, first experiments, simple context | One `CONTINUITY.md` file |
 | **Standard** | Ongoing projects, writing, research, repeated AI work | A small `continuity/` folder with an index, archive, and focused files |
-| **Project** | Teams, long-running workspaces, agents, governance | Briefings, decision records, session notes, evidence, and process files |
+| **Project** | Teams, long-running workspaces, agents, governance | Briefings, decisions, sessions, evidence, processes, fragments, open threads, and a roadmap |
 
 You can start Lite and grow later.
 
@@ -168,7 +168,7 @@ You can start Lite and grow later.
 
 **Standard** uses a small folder with a few files: current context, preferences, decisions, open threads, evidence, session notes, and an archive for full sessions or older documents. This is best for ongoing projects or serious personal use.
 
-**Project** adds a more formal structure for teams, long-running work, research, writing, software projects, or governance. This is where roadmap files, decision records, and evidence archives become useful.
+**Project** adds a more formal structure for teams, long-running work, research, writing, software projects, or governance. This is where briefings, decision records, session notes, evidence, processes, fragments, open threads, and a roadmap each get their own place. The full operating logic — how briefings get derived from entities, how decisions accumulate as individual files, how a consolidation pass keeps the layer fresh — lives in `SPEC.md` §6.3 and §14.1.
 
 ## The Core Rule
 
