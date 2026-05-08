@@ -16,7 +16,8 @@ When an AI assistant sees this command, it should:
 2. If `index.md` exists, use its hot, warm, and cold loading priorities.
 3. Use current context, active decisions, open threads, preferences, and evidence pointers as needed.
 4. Flag stale, inferred, provisional, contradictory, archived, or superseded items before relying on them.
-5. Keep the response brief unless the human asks for detail.
+5. Do not read `archive/` by default unless the task needs exact history, evidence, or old source material.
+6. Keep the response brief unless the human asks for detail.
 
 The AI does not need to recite every file it read. It should mention records used only when they materially affect the task.
 
@@ -39,8 +40,9 @@ When an AI assistant sees this command, it should:
 5. Avoid turning temporary states into permanent identity claims.
 6. Add or revise the "next session should start by" handoff when useful.
 7. Update `Last edited` and `Last edited by` fields when present.
-8. Keep the session log focused on what changed and what was updated elsewhere.
-9. If roughly 10 meaningful sessions have passed since cleanup, propose a merge/prune pass.
+8. If a full session or old document was archived, add a pointer in `evidence.md` or `session-log.md`.
+9. Keep the session log focused on what changed and what was updated elsewhere.
+10. If roughly 10 meaningful sessions have passed since cleanup, propose a merge/prune pass.
 
 ## Important
 

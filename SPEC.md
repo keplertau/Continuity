@@ -77,6 +77,9 @@ How strongly future AI sessions should treat a memory item. A confirmed decision
 **Evidence**
 The source material that supports or corrects a memory item: transcript, note, document, link, file, citation, chat export, or other record.
 
+**Archive**
+Cold storage for full sessions, older documents, retired drafts, bulky notes, and historical reference material. Archive material may be evidence, but it should not steer current work by default.
+
 **Consolidation**
 The process of reviewing previous conversations, notes, and records to update the continuity layer. This may be done manually, by an AI assistant at session end, by a scheduled task, or by an agent memory process.
 
@@ -210,6 +213,7 @@ continuity/
   open-threads.md
   evidence.md
   session-log.md
+  archive/
 ```
 
 Standard is best for:
@@ -234,6 +238,7 @@ continuity/
   decisions/
   sessions/
   evidence/
+  archive/
   processes/
   open-threads.md
   roadmap.md
@@ -388,7 +393,28 @@ Project should not be the default for ordinary users.
 
 **Failure mode:** The session log becomes a redundant diary that duplicates current context, decisions, and open threads instead of recording what changed.
 
-### 7.7 Process Context
+### 7.7 Archive
+
+**Job:** Preserve full sessions, older documents, retired drafts, bulky notes, and historical reference material without keeping them near the surface.
+
+**Typical location:** `archive/`.
+
+**Includes:**
+
+- full session exports
+- old documents
+- retired drafts
+- older context snapshots
+- bulky notes
+- attachments or source files
+
+**Authority:** Evidential when relevant, but not operative by default.
+
+**Update cadence:** Add when material should be preserved for later reference. Prune or reorganize during merge/prune passes.
+
+**Failure mode:** The archive becomes either a dump that nobody can search or an active memory source that overwhelms session start.
+
+### 7.8 Process Context
 
 **Job:** Preserve recurring workflows, triggers, reminders, cadences, or maintenance rules.
 
@@ -409,7 +435,7 @@ Project should not be the default for ordinary users.
 
 **Failure mode:** A process exists in theory but does not run in practice.
 
-### 7.8 Briefings
+### 7.9 Briefings
 
 **Job:** Provide near-surface orientation for complex projects.
 
@@ -515,6 +541,7 @@ At the end of a meaningful session, capture:
 - new open threads
 - confirmed or corrected preferences
 - evidence pointers
+- archive pointers for full sessions or old documents when useful
 - next steps
 
 Do not capture everything.
@@ -523,7 +550,7 @@ Do not capture everything.
 
 Place each item in the register where it belongs.
 
-A decision does not belong in current context only. A temporary worry does not belong in stable preferences. A transcript pointer does not belong only in a summary.
+A decision does not belong in current context only. A temporary worry does not belong in stable preferences. A transcript pointer does not belong only in a summary. A full session export does not belong in current context; it belongs in the archive, with a pointer from evidence or the session log.
 
 ### 11.3 Review
 
@@ -602,6 +629,8 @@ If the Continuity layer defines hot, warm, and cold files:
 - hot files are read at `Start continuity`
 - warm files are read when relevant
 - cold files are read when evidence, history, or exact wording matters
+
+Archives are cold by default. Do not read full archived sessions or old documents unless the task needs exact history, evidence, or old source material.
 
 For simple tasks, do not over-read.
 

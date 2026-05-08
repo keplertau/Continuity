@@ -33,6 +33,12 @@ Use this format:
 
 - [add item]
 
+## Archive Pointers
+
+Use this for full sessions, old documents, retired drafts, or bulky reference material stored in `archive/`.
+
+- [add item]
+
 ## Unverified Claims
 
 Claims that may be useful but do not yet have clear evidence.

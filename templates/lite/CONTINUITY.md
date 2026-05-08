@@ -97,6 +97,12 @@ These can be chats, notes, links, documents, files, or transcripts.
 
 - [add item]
 
+## Archived Material
+
+Use this for full session exports, old documents, retired drafts, or bulky reference material that may matter later but should not steer every future session by default.
+
+- [add item]
+
 ## Session Notes
 
 Record meaningful changes after important conversations.
@@ -108,6 +114,7 @@ Use this format:
 - `YYYY-MM-DD` - What changed:
   Updated:
   Evidence:
+  Archive:
   Not captured elsewhere:
   Next session should start by:
 

@@ -74,13 +74,18 @@ Last reviewed: 2026-05-08
 - `2026-05-08 planning chat` - Supports audience, title, and Chapter 2 direction. Fidelity: summary only, no transcript yet.
 - `chapter-2-notes.md` - Current source for Chapter 2 outline when present.
 
+## Archived Material
+
+- None yet.
+
 ## Session Notes
 
 - `2026-05-08` - What changed:
   Updated: initial current context, preferences, first decision, open threads.
   Evidence: planning chat summary.
+  Archive: none.
   Not captured elsewhere: none.
-  Next: read chapter notes and draft a Chapter 2 outline.
+  Next session should start by: read chapter notes and draft a Chapter 2 outline.
 
 ## Upgrade Trigger
 

@@ -71,6 +71,7 @@ continuity/
   open-threads.md
   evidence.md
   session-log.md
+  archive/
 ```
 
 Use this for projects, repeated personal planning, writing, research, or anything that keeps coming back across conversations.
@@ -94,6 +95,8 @@ Project adds more explicit structure for briefings, decision records, evidence, 
 **Evidence** is where important claims point back to their sources: transcripts, documents, links, notes, files, or citations.
 
 **Session notes** record what changed after a meaningful conversation.
+
+**Archive** is cold storage: full sessions, old documents, retired drafts, and bulky reference material. It is useful as evidence, but it should not be read at the start of every session.
 
 ## Status Markers
 

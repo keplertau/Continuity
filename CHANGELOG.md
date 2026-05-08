@@ -10,6 +10,7 @@ Continuity uses Git tags such as `v0.1.0` for public release points. Template, p
 
 - Replaced the original illustrative raster logo with a cleaner vector mark and regenerated the 512 x 512 PNG export.
 - Added lightweight maintenance conventions for review markers, conflict pointers, graduated context loading, session handoff notes, merge/prune cleanup, multi-agent edit metadata, and human-findable install locations.
+- Added an archive convention for full sessions, older documents, retired drafts, and bulky reference material.
 
 ## [0.1.0] - 2026-05-08
 

@@ -45,6 +45,7 @@ It separates:
 - what has already been decided
 - what is still open or unresolved
 - what evidence supports the memory
+- what belongs in the archive as cold reference
 - what should be reviewed before the AI acts strongly
 - what should fade into history instead of steering every future conversation
 
@@ -154,7 +155,7 @@ Continuity can be as small or as structured as you need.
 | Level | Best For | What It Creates |
 |---|---|---|
 | **Lite** | Personal use, first experiments, simple context | One `CONTINUITY.md` file |
-| **Standard** | Ongoing projects, writing, research, repeated AI work | A small `continuity/` folder with an index and focused files |
+| **Standard** | Ongoing projects, writing, research, repeated AI work | A small `continuity/` folder with an index, archive, and focused files |
 | **Project** | Teams, long-running workspaces, agents, governance | Briefings, decision records, session notes, evidence, and process files |
 
 You can start Lite and grow later.
@@ -165,7 +166,7 @@ You can start Lite and grow later.
 
 **Lite** uses one file, usually called `CONTINUITY.md`. This is best for personal use, early experiments, or anyone who just wants the benefit without extra structure.
 
-**Standard** uses a small folder with a few files: current context, preferences, decisions, open threads, evidence, and session notes. This is best for ongoing projects or serious personal use.
+**Standard** uses a small folder with a few files: current context, preferences, decisions, open threads, evidence, session notes, and an archive for full sessions or older documents. This is best for ongoing projects or serious personal use.
 
 **Project** adds a more formal structure for teams, long-running work, research, writing, software projects, or governance. This is where roadmap files, decision records, and evidence archives become useful.
 
@@ -230,6 +231,14 @@ Brand assets live in `assets/`.
 The example in `examples/personal-writer/CONTINUITY.md` shows a Lite setup for a writer working on a book.
 
 It demonstrates the basic rhythm: current context stays short, preferences stay reviewable, decisions carry status markers, open threads remain open, and evidence points back to sources.
+
+## Archive
+
+Use the archive for cold storage: full session exports, old documents, retired drafts, bulky notes, and historical reference material.
+
+The archive is not read by default at `Start continuity`. Active memory should stay in current context, preferences, decisions, open threads, evidence, or session notes. The archive should be reachable through pointers when exact history matters.
+
+For Standard setup, archived material lives under `continuity/archive/`.
 
 ## Design Principles
 

@@ -32,6 +32,7 @@ Cold files are read when evidence, history, or exact wording matters:
 
 - `evidence.md`
 - `session-log.md`
+- `archive/`
 
 If a task is sensitive, high-impact, identity-shaping, or contradictory, read the relevant warm and cold files before acting strongly.
 
@@ -43,6 +44,7 @@ If a task is sensitive, high-impact, identity-shaping, or contradictory, read th
 - `open-threads.md` - unresolved questions, tensions, hypotheses, risks, and watchpoints
 - `evidence.md` - sources and pointers
 - `session-log.md` - meaningful changes after sessions
+- `archive/` - full sessions, old documents, retired drafts, and bulky reference material
 
 ## Maintenance
 

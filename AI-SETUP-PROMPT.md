@@ -72,6 +72,7 @@ Standard:
   continuity/open-threads.md
   continuity/evidence.md
   continuity/session-log.md
+  continuity/archive/README.md
 - Best for ongoing projects, writing, research, serious personal planning, or repeated AI work.
 
 Project:
@@ -130,6 +131,7 @@ Evidence:
 - Point to transcripts, notes, links, documents, files, citations, or source material.
 - A summary is not the same as evidence.
 - If evidence is missing or uncertain, say so.
+- Point to archived full sessions or old documents when they support a current claim.
 
 Session log:
 - Record meaningful changes after a session.
@@ -137,6 +139,12 @@ Session log:
 - Capture what changed, what files were updated, what was not captured elsewhere, evidence pointers, and what the next session should start by.
 - Do not duplicate every item from current context, decisions, and open threads.
 - After roughly 10 meaningful sessions, propose a merge/prune pass.
+
+Archive:
+- Use `archive/` for full session exports, old documents, retired drafts, bulky notes, and historical reference material.
+- Do not read the archive at `Start continuity` unless the current task needs exact history, evidence, or old source material.
+- Do not leave active decisions, current context, or live next steps only in the archive.
+- Add pointers in `evidence.md` or `session-log.md` when archived material supports a current claim.
 
 Conflict rules:
 - Human correction in the current session outranks stored memory.

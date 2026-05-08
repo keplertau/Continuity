@@ -165,6 +165,7 @@ Dogfood testing on 2026-05-08 clarified the adoption surface:
 - Releases use `VERSION`, `CHANGELOG.md`, and Git tags such as `v0.1.0`; generated setups record the Continuity version and source commit when available.
 - Continuity should be installed in a human-findable location, not hidden deep in an assistant, temp, cloud, cache, or sandbox folder.
 - Standard setup now includes an `index.md` for hot/warm/cold context loading plus lightweight maintenance conventions: last reviewed, last edited by, conflict pointers, next-session handoff, and merge/prune cleanup after roughly 10 meaningful sessions.
+- Standard setup includes `archive/` as cold storage for full sessions, older documents, retired drafts, and bulky reference material. Active memory should point to archive material through `evidence.md` or `session-log.md`; archive is not read by default at `Start continuity`.
 
 ## Session Governance
 
