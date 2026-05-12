@@ -4,6 +4,17 @@ All notable changes to Continuity are documented here.
 
 Continuity uses Git tags such as `v0.1.0` for public release points. Template, prompt, and specification changes should be noted here so generated setups can be traced back to the version they came from.
 
+## [Unreleased]
+
+### Added
+
+- **`examples/project-team/`.** Populated Project-mode worked example for a fictional open-source documentation team. The example shows hot/warm/cold loading, derived briefings, individual decision entities, session summaries, fidelity-labelled evidence records, process files, open threads, a roadmap, and a low-authority fragment in use together.
+
+### Changed
+
+- **README.md.** Worked example section now points to both the Lite personal-writer example and the Project-mode project-team example.
+- **AGENTS.md.** Removed the Project-mode worked example from the next-work list now that it exists.
+
 ## [0.2.1] - 2026-05-08
 
 Project-mode template, consolidation-pass prompt, and small README/AGENTS edits to align the public surfaces with v0.2.0 SPEC additions. No SPEC changes.

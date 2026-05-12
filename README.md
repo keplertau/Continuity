@@ -15,6 +15,7 @@
 <p align="center">
   <a href="#quick-start">Quick Start</a> ·
   <a href="#where-it-works">Where It Works</a> ·
+  <a href="#worked-examples">Examples</a> ·
   <a href="START-HERE.md">Start Here</a> ·
   <a href="AI-SETUP-PROMPT.md">AI Setup Prompt</a> ·
   <a href="COMMANDS.md">Commands</a> ·
@@ -226,11 +227,15 @@ The mark uses a continuous loop, two nodes, and layered context cards. The hero 
 
 Brand assets live in `assets/`.
 
-## Worked Example
+## Worked Examples
 
 The example in `examples/personal-writer/CONTINUITY.md` shows a Lite setup for a writer working on a book.
 
 It demonstrates the basic rhythm: current context stays short, preferences stay reviewable, decisions carry status markers, open threads remain open, and evidence points back to sources.
+
+The example in `examples/project-team/` shows a populated Project-mode setup for a fictional open-source documentation team.
+
+It demonstrates how a larger workspace uses hot/warm/cold loading, derived briefings, individual decision entities, session summaries, evidence records, process files, open threads, a roadmap, and low-authority fragments without flattening them into one memory bucket.
 
 ## Archive
 

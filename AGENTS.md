@@ -189,11 +189,10 @@ For the wider Projects Continuity instance (the live working memory layer, forme
 
 Next work:
 
-1. Add a worked example for project use to complement the `templates/project/` structure shipped in v0.2.1.
-2. Add examples for Obsidian/wiki use and managed-agent memory stores.
-3. Continue compatibility testing across file-access agents, project-file assistants, and browser-only chat tools.
-4. Draft a CarstenGeiser article that introduces Continuity publicly and links to the GitHub repo without making the article the source of truth.
-5. Optional `prompts/retrieval-discipline.md` and `prompts/end-of-session.md` artifacts to complement `prompts/consolidation-pass.md`.
+1. Add examples for Obsidian/wiki use and managed-agent memory stores.
+2. Continue compatibility testing across file-access agents, project-file assistants, and browser-only chat tools.
+3. Draft a CarstenGeiser article that introduces Continuity publicly and links to the GitHub repo without making the article the source of truth.
+4. Optional `prompts/retrieval-discipline.md` and `prompts/end-of-session.md` artifacts to complement `prompts/consolidation-pass.md`.
 
 ## Current Positioning
 
